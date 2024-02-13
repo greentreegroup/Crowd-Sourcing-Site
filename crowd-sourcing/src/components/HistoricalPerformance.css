@@ -1,0 +1,6 @@
+.historical-performance {
+    /* Ensure the container is responsive */
+    width: 100%;
+    max-width: 100%; /* Limit the maximum size if needed */
+    padding: 20px;
+  }

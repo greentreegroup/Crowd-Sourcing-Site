@@ -1,0 +1,74 @@
+.sidebar {
+    background-color: #c69963;
+    grid-column: sidebar-start / sidebar-end;
+    grid-row: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    grid-template-columns: [sidebar-start] auto [sidebar-end] 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100%; 
+    width: 50px; /* Default narrow width */
+    transition: width 0.3s ease-in-out; /* Smooth transition for width change */
+    /* other styles... */
+  }
+
+.nav-btn {
+  background-color: #c69963; /* Orange background */
+  color: #ffffff; /* White text */
+  font-size: 24px; /* Adjust size as needed */
+  border: none; /* Remove default border */
+  padding: 10px 15px; /* Adjust padding as needed */
+  cursor: pointer; /* Cursor pointer for better UX */
+  outline: none; /* Remove focus outline */
+}
+  
+  .sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-item {
+    padding: 10px;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #ffffff; /* White text */
+    display: block;
+  }
+  
+  .nav-link:hover {
+    background-color: #a56a4f; /* Darker shade for hover state */
+  }
+  
+  .icon-dashboard, .icon-messages, .icon-settings {
+    margin-right: 8px;
+    /* Add icon styles or use a font icon library */
+  }
+
+  /* Slightly narrower sidebar when the window width is less than 1024px */
+  @media (max-width: 1024px) {
+    .sidebar {
+      width: 150px;
+    }
+  }
+  
+/* Even narrower sidebar when the window width is less than 768px */
+@media (max-width: 768px) {
+    .sidebar {
+      width: 100px;
+    }
+  }
+  
+/* Minimal sidebar width when the window width is less than 480px */
+@media (max-width: 480px) {
+    .sidebar {
+      width: 50px;
+    }
+  }
+
+
+  
