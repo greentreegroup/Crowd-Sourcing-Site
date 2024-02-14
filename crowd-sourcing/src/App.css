@@ -1,38 +1,11 @@
 .App {
-  text-align: center;
+  display: grid;
+  grid-template-columns: [sidebar-start] auto [sidebar-end] 1fr;
+  grid-template-rows: auto 1fr;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* This will ensure that FAQ and other main content stretch full width */
+.main-content {
+  grid-area: 1 / full-start / 2 / full-end;
 }
