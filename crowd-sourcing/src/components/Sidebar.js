@@ -29,19 +29,24 @@ const Sidebar = () => {
           </li>
           {/* Adjust the paths as per your routing setup */}
           <li className="nav-item">
-          <Link to="/investment-details" className="nav-link">
-          Investment Details
-          </Link>
+            <Link to="/listings" className="nav-link">
+              Listings
+            </Link>
           </li>
           <li className="nav-item">
-          <Link to="/help-center" className="nav-link">
-            Help Center
-          </Link>
+            <Link to="/investment-details" className="nav-link">
+              Investment Details
+            </Link>
           </li>
           <li className="nav-item">
-          <Link to="/track-record" className="nav-link">
-            Track Record
-          </Link>
+            <Link to="/help-center" className="nav-link">
+              Help Center
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/track-record" className="nav-link">
+              Track Record
+            </Link>
           </li>
         </ul>
       )}
