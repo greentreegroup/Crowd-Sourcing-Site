@@ -1,3 +1,4 @@
+// This page displays a list of rental properties and allows you to filter the results.
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
