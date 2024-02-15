@@ -5,7 +5,3 @@
 }
 
 
-/* This will ensure that FAQ and other main content stretch full width */
-.main-content {
-  grid-area: 1 / full-start / 2 / full-end;
-}

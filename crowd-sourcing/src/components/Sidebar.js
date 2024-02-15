@@ -34,9 +34,14 @@ const Sidebar = () => {
           </Link>
           </li>
           <li className="nav-item">
-            <Link to="/help-center" className="nav-link">
-              <i className="icon-settings"></i> Help Center
-            </Link>
+          <Link to="/help-center" className="nav-link">
+            Help Center
+          </Link>
+          </li>
+          <li className="nav-item">
+          <Link to="/track-record" className="nav-link">
+            Track Record
+          </Link>
           </li>
         </ul>
       )}

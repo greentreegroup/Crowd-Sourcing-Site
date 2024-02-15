@@ -6,6 +6,7 @@ import SignUpForm from './components/SignUpForm';
 import Sidebar from './components/Sidebar';
 import HelpCenter from './HelpCenter'; // Make sure this path is correct
 import InvestmentDetails_1 from './InvestmentDetails_1'; // Adjust the path as necessary
+import TrackRecord from './TrackRecord';
 
 import './App.css';
 
@@ -36,8 +37,9 @@ function App() {
         {showSignUp && <SignUpForm onClose={closeForms} />}
         <main className="App-main">
           <Routes>
-            <Route path="/" element={<HelpCenter />} />
+            <Route path="/help-center" element={<HelpCenter />} />
             <Route path="/investment-details" element={<InvestmentDetails_1 />} />
+            <Route path="/track-record" element={<TrackRecord />} />
             {/* Other routes */}
           </Routes>
         </main>
