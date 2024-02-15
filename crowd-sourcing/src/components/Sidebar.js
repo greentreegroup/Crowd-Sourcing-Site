@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Sidebar.css';
 
 const Sidebar = () => {
@@ -21,21 +22,22 @@ const Sidebar = () => {
       {isNavVisible && (
         <ul className="sidebar-nav">
           <li className="nav-item">
-            <a href="/dashboard" className="nav-link">
-              <i className="icon-dashboard"></i> Homepage
-            </a>
+            {/* Use Link component for SPA behavior */}
+            <Link to="/" className="nav-link">
+              <i className="icon-HomePage"></i> Home Page
+            </Link>
+          </li>
+          {/* Adjust the paths as per your routing setup */}
+          <li className="nav-item">
+          <Link to="/investment-details" className="nav-link">
+          Investment Details
+          </Link>
           </li>
           <li className="nav-item">
-            <a href="/messages" className="nav-link">
-              <i className="icon-messages"></i> Investment Listings
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="/settings" className="nav-link">
+            <Link to="/help-center" className="nav-link">
               <i className="icon-settings"></i> Help Center
-            </a>
+            </Link>
           </li>
-          
         </ul>
       )}
     </div>
