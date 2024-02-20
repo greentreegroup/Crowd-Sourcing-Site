@@ -1,7 +1,26 @@
+/*App.css*/ 
 .App {
   display: grid;
   grid-template-columns: [sidebar-start] auto [sidebar-end] 1fr;
-  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+  /* Other styles */
 }
 
+.sidebar {
+  grid-area: sidebar;
+  /* Other styles */
+}
+
+.header {
+  grid-area: header;
+  width: 100%; /* Ensure it fills the area */
+  /* Remove relative positioning if not needed for child positioning */
+}
+
+.App-main {
+  grid-area: main;
+  /* Other styles */
+}
 

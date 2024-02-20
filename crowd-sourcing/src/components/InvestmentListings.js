@@ -1,6 +1,6 @@
 // This page displays a list of rental properties and allows you to filter the results.
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import './InvestmentListings.css'; // Import CSS file
 
 const InvestmentListings = ({ minPrice, maxPrice, sortByRecent, propertyType }) => {
