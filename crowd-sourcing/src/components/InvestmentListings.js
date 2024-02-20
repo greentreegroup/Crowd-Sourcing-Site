@@ -9,10 +9,11 @@ const InvestmentListings = ({ minPrice, maxPrice, sortByRecent, propertyType }) 
     {
       id: 1,
       photo: 'https://burst.shopifycdn.com/photos/one-storey-home-exterior.jpg?width=1000',
-      name: 'Example Home 1',
+      name: 'Beautiful Family House',
       property_type: 'House',
       date_published: '2024-02-14',
       minimum_investment: 100000,
+      area: 5000,
     },
     {
       id: 2,
@@ -21,6 +22,7 @@ const InvestmentListings = ({ minPrice, maxPrice, sortByRecent, propertyType }) 
       property_type: 'Apartment',
       date_published: '2024-02-15',
       minimum_investment: 120000,
+      area: 5000,
     },
     {
       id: 3,
@@ -29,6 +31,7 @@ const InvestmentListings = ({ minPrice, maxPrice, sortByRecent, propertyType }) 
       property_type: 'Apartment',
       date_published: '2024-02-15',
       minimum_investment: 120000,
+      area: 5000,
     },
     {
       id: 4,
@@ -37,9 +40,15 @@ const InvestmentListings = ({ minPrice, maxPrice, sortByRecent, propertyType }) 
       property_type: 'Apartment',
       date_published: '2024-02-15',
       minimum_investment: 120000,
+      area: 5000,
     }
     // Add more sample listings as needed
   ];
+  const [showFilter, setShowFilter] = useState(false); // To keep track of whether filter is shown or hidden
+  const toggleFilter = () => {
+    setShowFilter(!showFilter); // Toggle the state of showing filter
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -62,38 +71,48 @@ const InvestmentListings = ({ minPrice, maxPrice, sortByRecent, propertyType }) 
 
   // Inside the InvestmentListings component
   return (
-    <div className="homes">
-      {listings.map(listing => (
-        <div key={listing.id} className="home">
-          <img src={listing.photo} alt={listing.name} className="home__img" />
-          <h5 className="home__name">{listing.name}</h5>
-          <div className="home__location">
-            <svg>
-              <use xlinkHref="img/sprite.svg#icon-map-pin"></use>
-            </svg>
-            <p>{listing.property_type}</p>
+    <div className="listings">
+      <div className={`filter ${showFilter ? 'active' : ''}`} key={showFilter} onClick={() => toggleFilter()}>
+          <div className="filter-btn">
+            Filter
           </div>
-          <div className="home__rooms">
-            <svg>
-              <use xlinkHref="img/sprite.svg#icon-profile-male"></use>
-            </svg>
-            <p>{listing.date_published}</p>
+          <div className="filter-body">
+            Filter coming soon.
           </div>
-          <div className="home__area">
-            <svg>
-              <use xlinkHref="img/sprite.svg#icon-expand"></use>
-            </svg>
-            <p>{listing.minimum_investment}</p>
-          </div>
-          <div className="home__price">
-            <svg>
-              <use xlinkHref="img/sprite.svg#icon-key"></use>
-            </svg>
-            <p>${listing.minimum_investment}</p>
-          </div>
-          <button className="btn home__btn">Contact realtor</button>
         </div>
-      ))}
+      <div className="homes">
+        {listings.map(listing => (
+          <div key={listing.id} className="home">
+            <img src={listing.photo} alt={listing.name} className="home__img" />
+            <h5 className="home__name">{listing.name}</h5>
+            <div className="home__location">
+              <svg>
+                <use xlinkHref="img/sprite.svg#icon-map-pin"></use>
+              </svg>
+              <p>{listing.property_type}</p>
+            </div>
+            <div className="home__rooms">
+              <svg>
+                <use xlinkHref="img/sprite.svg#icon-profile-male"></use>
+              </svg>
+              <p>{listing.date_published}</p>
+            </div>
+            <div className="home__area">
+              <svg>
+                <use xlinkHref="img/sprite.svg#icon-expand"></use>
+              </svg>
+              <p>{listing.area} m<sup>2</sup></p>
+            </div>
+            <div className="home__price">
+              <svg>
+                <use xlinkHref="img/sprite.svg#icon-key"></use>
+              </svg>
+              <p>${listing.minimum_investment}</p>
+            </div>
+            <button className="btn home__btn">Contact Realtor</button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

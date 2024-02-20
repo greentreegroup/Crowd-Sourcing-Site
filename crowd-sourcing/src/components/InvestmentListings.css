@@ -1,3 +1,44 @@
+.filter {
+  margin-bottom: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.filter.active .filter-body {
+  display: block;
+}
+
+.filter-btn {
+  background-color: #c69963;
+  color: #fff; /* Text color */
+  border: none;
+  padding: 1.0rem 1.6rem;
+  font-size: 1.2rem;
+  border-radius: 1px; /* Rounded corners */
+  margin-top: 1rem;
+  margin-left: 5rem;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition for background color */
+  width: 85%;
+  text-align: left;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.filter-btn:hover {
+  background-color: #B28451; /* Darker shade for hover effect */
+}
+
+.filter-body {
+  display: none; /* Hide initially */
+  padding: 0.8rem 1.6rem; /* Padding to match filter button */
+  margin-left: 5rem;
+  position: absolute;
+  top: calc(100% + 10px); /* Position it below the filter */
+  left: 0;
+  z-index: 1; /* Ensure it appears above other content */
+}
+
 .btn {
   background-color: #c69963;
   color: #fff;
@@ -75,6 +116,11 @@
 .home__area,
 .home__price {
   margin-bottom: 0.9rem;
+}
+
+p {
+  font-family: "Nunito", sans-serif;
+  /* Replace 'Your Desired Font' with your preferred font */
 }
 
 .home__location,
