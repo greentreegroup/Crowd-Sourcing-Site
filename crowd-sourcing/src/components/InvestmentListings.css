@@ -4,9 +4,10 @@
   border: none;
   border-radius: 0;
   font-family: "Josefin Sans", sans-serif;
+  font-weight: 500;
   font-size: 1rem;
   text-transform: uppercase;
-  padding: 1.8rem 3rem;
+  padding: 1.3rem 3rem;
   cursor: pointer;
   transition: all .2s;
 }
@@ -57,18 +58,23 @@
   z-index: 3;
   width: 80%;
   font-family: "Josefin Sans", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1rem;
   text-align: center;
   padding: 1.25rem;
   background-color: #101d2c;
   color: #fff;
-  font-weight: 400;
-  transform: translateY(50%);
+  font-weight: 600;
+  transform: translateY(100%);
 }
 
 .home__location,
 .home__rooms {
-  margin-top: 1rem;
+  margin-top: 2.6rem;
+}
+
+.home__area,
+.home__price {
+  margin-bottom: 0.9rem;
 }
 
 .home__location,
@@ -77,10 +83,10 @@
 .home__price {
   font-family: "Nunito", sans-serif;
   color: #6D5D4B;
-  font-weight: 300;
+  font-weight: 100;
   line-height: 1.6;
   font-size: 1rem;
-  margin-left: 2rem;
+  margin-left: 1.3rem;
   display: flex;
   align-items: center;
 }
