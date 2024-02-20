@@ -1,3 +1,4 @@
+//SignUpForm.js
 import React from 'react';
 import './SignUpForm.css'; // Make sure you duplicate and rename the CSS file too
 

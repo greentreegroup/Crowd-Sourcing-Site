@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from './components/Header';
 import HistoricalPerformance from './components/HistoricalPerformance';
 import './App.css';
 
@@ -20,7 +19,6 @@ function TrackRecord() {
   return (
     <div className="App">
       <main className="App-main">
-        <Header />
         <HistoricalPerformance performanceData={performanceData} />
         {/* Include any other content specific to this component */}
       </main>

@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from './components/Header';
 import InvestmentDetails from './components/InvestmentDetails';
 import './App.css';
 
@@ -37,7 +36,6 @@ function InvestmentDetails_1() {
   return (
     <div className="App">
       <main className="App-main">
-        <Header />
         <InvestmentDetails property={propertyDetails} />
         {/* Include any other content specific to this component */}
       </main>

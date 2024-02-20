@@ -23,8 +23,8 @@ const Sidebar = () => {
         <ul className="sidebar-nav">
           <li className="nav-item">
             {/* Use Link component for SPA behavior */}
-            <Link to="/" className="nav-link">
-              <i className="icon-HomePage"></i> Home Page
+            <Link to="/home-page" className="nav-link">
+               Home Page
             </Link>
           </li>
           {/* Adjust the paths as per your routing setup */}
