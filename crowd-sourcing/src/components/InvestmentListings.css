@@ -39,6 +39,29 @@
   z-index: 1; /* Ensure it appears above other content */
 }
 
+.checkbox-label {
+  display: flex;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-left: -230px;
+  margin-top: 1px;
+}
+
+.update-btn {
+  background-color: #c69963;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 1.3rem 3rem;
+  cursor: pointer;
+  transition: all .2s;
+}
+
 .btn {
   background-color: #c69963;
   color: #fff;
@@ -59,7 +82,7 @@
 
 .homes {
   grid-column: center-start / center-end;
-  margin: 15rem 5rem;
+  margin: 17rem 5rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, 20rem);
   grid-gap: 7rem;
