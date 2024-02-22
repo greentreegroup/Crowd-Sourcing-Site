@@ -31,6 +31,18 @@ const InvestmentListings = () => {
     setPropertyType(e.target.value);
   };
 
+  const reformatDate = (dateString) => {
+    const date = new Date(dateString);
+    const year = date.getFullYear().toString().slice(-2);
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${month}/${day}/${year}`;
+  };
+
+  const numberWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
   const fetchData = async () => {
     try {
       console.log(`minPrice: ${minPrice}`);
@@ -53,7 +65,7 @@ const InvestmentListings = () => {
 
   // Inside the InvestmentListings component
   return (
-    <div className="listings">
+    <div className="listings-page">
       <div className={`filter ${showFilter ? 'active' : ''}`}>
         <div className="filter-btn" onClick={() => toggleFilter()}>
           Filter
@@ -68,51 +80,39 @@ const InvestmentListings = () => {
             <input type="number" value={(maxPrice === -1) ? '' : maxPrice} onChange={handleMaxPriceChange} />
           </label>
           <label className="checkbox-label">
-            Sort by Recent:
+            Sort By Recent:
             <input type="checkbox" checked={sortByRecent} onChange={handleSortByRecentChange} />
           </label>
           <label>
             Property Type:
             <select value={propertyType} onChange={handlePropertyTypeChange}>
               <option value="none">Select</option>
-              <option value="house">House</option>
+              <option value="hotel">Hotel</option>
               <option value="apartment">Apartment</option>
-              <option value="condo">Condo</option>
+              <option value="condominium">Condominium</option>
             </select>
           </label>
-          <button class="update-btn" onClick={fetchData}>Update</button>
+          <button className="update-btn" onClick={fetchData}>Update</button>
         </div>
       </div>
-    <div className="homes">
+    <div className="listings">
         {listings.map(listing => (
-          <div key={listing.id} className="home">
-            <img src={listing.photos.split('\n')[0]} alt={listing.name} className="home__img" />
-            <h5 className="home__name">{listing.name}</h5>
-            <div className="home__location">
-              <svg>
-                <use xlinkHref="img/sprite.svg#icon-map-pin"></use>
-              </svg>
-              <p>{listing.property_type}</p>
+          <div key={listing.id} className="listing">
+            <img src={listing.photos.split('\n')[0]} alt={listing.name} className="listing__img" />
+            <h5 className="listing__name">{listing.name}</h5>
+            <div className="listing__type listing__detail">
+              <p>Property Type</p>
+              <p className="listing__value">{listing.property_type}</p>
             </div>
-            <div className="home__rooms">
-              <svg>
-                <use xlinkHref="img/sprite.svg#icon-profile-male"></use>
-              </svg>
-              <p>{listing.date_published}</p>
+            <div className="listing__date listing__detail">
+              <p>Date Published</p>
+              <p className="listing__value">{reformatDate(listing.date_published)}</p>
             </div>
-            <div className="home__area">
-              <svg>
-                <use xlinkHref="img/sprite.svg#icon-expand"></use>
-              </svg>
-              <p>{listing.area} m<sup>2</sup></p>
+            <div className="listing__price listing__detail">
+              <p>Minimum Investment</p>
+              <p className="listing__value">${numberWithCommas(listing.minimum_investment)}</p>
             </div>
-            <div className="home__price">
-              <svg>
-                <use xlinkHref="img/sprite.svg#icon-key"></use>
-              </svg>
-              <p>${listing.minimum_investment}</p>
-            </div>
-            <button className="btn home__btn">Contact Realtor</button>
+            <button className="btn listing__btn">Contact Realtor</button>
           </div>
         ))}
       </div>
