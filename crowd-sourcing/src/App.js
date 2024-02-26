@@ -43,7 +43,7 @@ function App() {
         {showSignUp && <SignUpForm onClose={closeForms} />}
         <main className="App-main">
           <Routes>
-            <Route path="/home-page" element={<HomePage />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/help-center" element={<HelpCenter />} />
             <Route path="/investment-details" element={<InvestmentDetails_1 />} />
             <Route path="/track-record" element={<TrackRecord />} />
