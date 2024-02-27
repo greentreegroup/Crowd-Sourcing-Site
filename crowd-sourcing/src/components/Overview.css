@@ -1,3 +1,6 @@
+*, *::before, *::after {    /* Prevent Header from extruding passed the window size */
+    box-sizing: border-box;
+  }
 h4{
     font-family: "Josefin Sas", sans-serif;
     color: #54483A;
@@ -27,7 +30,6 @@ p{
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     grid-gap: 6rem;
     align-items: start;
-    grid-column: center-start / center-end;
     margin: 0 0;
     width: auto;
     margin-bottom: 0;

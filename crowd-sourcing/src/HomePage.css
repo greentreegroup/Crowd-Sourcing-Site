@@ -1,5 +1,7 @@
 /* HomePage.css */
-
+*, *::before, *::after {    /* Prevent Header from extruding passed the window size */
+    box-sizing: border-box;
+  }
 section {
     padding: 20px;
     margin: 20px;
@@ -10,10 +12,3 @@ h1 {
     margin-bottom: 20px;
 }
 
-.featured-listings-container  {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Creates 3 columns */
-    grid-gap: 20px; /* Adjust the gap between items as needed */
-    justify-items: center; /* Center items horizontally */
-    align-items: start; /* Align items to the start of each cell vertically */
-  }
