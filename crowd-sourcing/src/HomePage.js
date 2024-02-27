@@ -17,16 +17,22 @@ function HomePage() {
         next big idea or an investor looking to diversify your portfolio with exciting 
         new ventures, 2300 Frontier is your gateway to the future of funding. Explore a 
         world of opportunities with us and be part of the journey that transforms dreams 
-        into reality.</p>
+        into reality.
       <Overview/>
+        </p>
 
 
         {/* Featured Listings Section */}
         <div className="featured-listings-container">
-          <section>
         <br />
-        <h1>Featured Listings</h1>
-            <FeaturedListings minPrice={-1} maxPrice={-1} sortByRecent={false} propertyType={'none'}/>
+        <h1>Featured investment opportunities </h1>
+          <section>
+        <p className='welcome-message'>Discover the latest and most exciting crowdfunding opportunities 
+        on 2300 Frontier. From cutting-edge technology innovations to sustainable environmental solutions, 
+        our platform hosts a variety of projects seeking your support. Dive into our curated selection of 
+        opportunities and find the next big thing to invest in. <br /><br />
+        <FeaturedListings minPrice={-1} maxPrice={-1} sortByRecent={false} propertyType={'none'}/>
+        </p>
 
              {/* No props needed as they have been removed */}
           </section>
