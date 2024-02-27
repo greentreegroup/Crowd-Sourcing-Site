@@ -1,13 +1,37 @@
 //HomePage.js
-import React from 'react';
+import React, { useState } from 'react';
 import FeaturedListings from './components/FeaturedListings'; 
 import Overview from './components/Overview';  
+import Header from './components/Header';
+import SignInForm from './components/SignInForm';
+import SignUpForm from './components/SignUpForm';
 
 import './HomePage.css';
 
 function HomePage() {
+  const [showSignIn, setShowSignIn] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
+
+  const handleSignInClick = () => {
+    setShowSignIn(true);
+    setShowSignUp(false);
+  };
+
+  const handleSignUpClick = () => {
+    setShowSignUp(true);
+    setShowSignIn(false);
+  };
+
+  const closeForms = () => {
+    setShowSignIn(false);
+    setShowSignUp(false);
+  };
+
   return (
     <div className="App">
+      <Header onSignInClick={handleSignInClick} onSignUpClick={handleSignUpClick} />
+      {showSignIn && <SignInForm onClose={closeForms} />}
+      {showSignUp && <SignUpForm onClose={closeForms} />}
       <main className="App-main">
       <br />
       <h1>Overview</h1>

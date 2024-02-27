@@ -13,12 +13,6 @@
   /* Other styles */
 }
 
-.header {
-  grid-area: header;
-  width: 100%; /* Ensure it fills the area */
-  /* Remove relative positioning if not needed for child positioning */
-}
-
 .App-main {
   grid-area: main;
   /* Other styles */

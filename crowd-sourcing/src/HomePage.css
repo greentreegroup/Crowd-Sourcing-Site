@@ -2,6 +2,14 @@
 *, *::before, *::after {    /* Prevent Header from extruding passed the window size */
     box-sizing: border-box;
   }
+
+.header {
+  grid-area: header;
+  width: 100%;
+  /* Ensure it fills the area */
+  /* Remove relative positioning if not needed for child positioning */
+}
+
 section {
     padding: 20px;
     margin: 20px;
