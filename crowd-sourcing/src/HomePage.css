@@ -12,3 +12,11 @@ h1 {
     margin-bottom: 20px;
 }
 
+.welcome-message {
+    text-align: center;
+    font-weight: normal; /* Ensures the text is not bold */
+    font-size: 26px; /* Sets the font size to 26px */
+    margin: 20px auto; /* Adds some vertical margin around the paragraph and auto for horizontal to center */
+    padding: 0 px; /* Adds padding on the left and right. Adjust the 40px as needed. */
+    max-width: 1600px; /* Optional: Sets a maximum width for the paragraph */
+  }

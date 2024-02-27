@@ -27,16 +27,20 @@ p{
 
 .features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    grid-gap: 6rem;
+    grid-gap: 6rem; /* Adjust the gap as needed */
     align-items: start;
-    margin: 0 0;
-    width: auto;
-    margin-bottom: 0;
-    /*grid-template-columns: min-content 1fr;*/
-    grid-row-gap: 1.5rem;
-    grid-column-gap: 2.5rem;
-    
+    justify-content: center;
+    margin: 0 auto; /* Center the grid container */
+    width: 90%; /* Adjust based on your layout needs */
+    /* Initial setup for two columns */
+    grid-template-columns: repeat(2, 1fr); /* Set up for 2 columns */
+}
+
+/* Media query for narrower screens */
+@media (max-width: 800px) { /* Adjust breakpoint as needed */
+    .features {
+        grid-template-columns: 1fr; /* One column on narrow screens */
+    }
 }
 /*
 .icon {

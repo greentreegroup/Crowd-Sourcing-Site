@@ -7,7 +7,6 @@ const Header = ({ onSignInClick, onSignUpClick }) => {
   return (
     <header className="header">
       <img src="/img/logo.png" alt="Nexter logo" className="header__logo" />
-      <h3 className="heading-3">Your own home:</h3>
       <h1 className="heading-1">The ultimate personal freedom</h1>
       <div className="header__seenon-text">Seen on</div>
       <div className="header__seenon-logos">
