@@ -1,3 +1,4 @@
+//InvestmentDetails.js
 import React, { useState } from 'react';
 import './InvestmentDetails.css';
 import Modal from './Modal'; // Import the Modal component if you have it in a separate file

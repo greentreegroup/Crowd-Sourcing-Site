@@ -5,7 +5,7 @@ import Overview from './components/Overview';
 import Header from './components/Header';
 import SignInForm from './components/SignInForm';
 import SignUpForm from './components/SignUpForm';
-
+import Footer from './components/Footer';
 import './HomePage.css';
 
 function HomePage() {
@@ -33,6 +33,7 @@ function HomePage() {
       {showSignIn && <SignInForm onClose={closeForms} />}
       {showSignUp && <SignUpForm onClose={closeForms} />}
       <main className="App-main">
+
       <br />
       <h1>Overview</h1>
       <p className='welcome-message'>Welcome to 2300 Frontier, where innovative ideas meet passionate investors. 
@@ -57,9 +58,10 @@ function HomePage() {
         opportunities and find the next big thing to invest in. <br /><br />
         <FeaturedListings minPrice={-1} maxPrice={-1} sortByRecent={false} propertyType={'none'}/>
         </p>
-
-             {/* No props needed as they have been removed */}
+      {/* No props needed as they have been removed */}
           </section>
+        <Footer/>
+
         </div>
       </main>
       {/* You can add other sections/components here as needed */}
