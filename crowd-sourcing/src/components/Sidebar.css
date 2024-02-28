@@ -37,11 +37,12 @@
   .nav-link {
     text-decoration: none;
     color: #ffffff; /* White text */
-    display: block;
+    border-bottom: 2px solid none;
   }
   
   .nav-link:hover {
-    background-color: #a56a4f; /* Darker shade for hover state */
+    border-bottom: 2px solid white; /* on hover a white bar apears under the nav link */
+    transition: border-bottom 0.1s ease; /*it will make the bar appearance slow*/
   }
   
   .icon-dashboard, .icon-messages, .icon-settings {
