@@ -72,12 +72,6 @@ feature {
     margin-bottom: 0;
 }
 
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-}
-
 .features:nth-child(3) {
     display: none;
   }

@@ -88,7 +88,7 @@ const InvestmentListings = () => {
             <select value={propertyType} onChange={handlePropertyTypeChange}>
               <option value="none">Select</option>
               <option value="hotel">Hotel</option>
-              <option value="apartment">Apartment</option>
+              <option value="apartments">Apartments</option>
               <option value="condominium">Condominium</option>
             </select>
           </label>
@@ -112,7 +112,7 @@ const InvestmentListings = () => {
               <p>Minimum Investment</p>
               <p className="listing__value">${numberWithCommas(listing.minimum_investment)}</p>
             </div>
-            <button className="btn listing__btn">Contact Realtor</button>
+            <button className="listing-btn">Contact Realtor</button>
           </div>
         ))}
       </div>
