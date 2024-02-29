@@ -78,8 +78,8 @@ select {
 
 .listing-btn {
   position: relative;
-    left: 0px;
-    grid-column: 1 / -1;
+  left: 0px;
+  grid-column: 1 / -1;
   background-color: #c69963;
   color: #fff;
   border: none;
@@ -147,7 +147,7 @@ select {
   transform: translateY(100%);
 }
 
-.listing__type {
+.listing__location {
   margin-top: 2.6rem;
 }
 
@@ -175,16 +175,6 @@ p {
   margin-left: auto;
   font-weight: bold;
   text-transform: capitalize;
-}
-
-.listing__type svg,
-.listing__date svg,
-.listing__area svg,
-.listing__price svg {
-  fill: #c69963;
-  height: 1.5rem;
-  width: 1.5rem;
-  margin-right: 1rem;
 }
 
 .listing-btn {

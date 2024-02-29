@@ -100,11 +100,15 @@ const InvestmentListings = () => {
           <div key={listing.id} className="listing">
             <img src={listing.photos.split('\n')[0]} alt={listing.name} className="listing__img" />
             <h5 className="listing__name">{listing.name}</h5>
-            <div className="listing__type listing__detail">
+            <div className="listing__location listing__detail">
+              <p>Location</p>
+              <p className="listing__value">{listing.location}</p>
+            </div>
+            <div className="listing__detail">
               <p>Property Type</p>
               <p className="listing__value">{listing.property_type}</p>
             </div>
-            <div className="listing__date listing__detail">
+            <div className="listing__detail">
               <p>Date Published</p>
               <p className="listing__value">{reformatDate(listing.date_published)}</p>
             </div>
@@ -112,7 +116,7 @@ const InvestmentListings = () => {
               <p>Minimum Investment</p>
               <p className="listing__value">${numberWithCommas(listing.minimum_investment)}</p>
             </div>
-            <button className="listing-btn">Contact Realtor</button>
+            <button className="listing-btn">View Offering</button>
           </div>
         ))}
       </div>
