@@ -1,9 +1,11 @@
 // This page displays a list of rental properties and allows you to filter the results.
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './InvestmentListings.css'; // Import CSS file
 
 const InvestmentListings = () => {
+  const navigate = useNavigate();
   const [listings, setListings] = useState([]);
   const [showFilter, setShowFilter] = useState(false); // To keep track of whether filter is shown or hidden
   const [minPrice, setMinPrice] = useState(-1);
@@ -51,6 +53,10 @@ const InvestmentListings = () => {
     } catch (error) {
       console.error('Error fetching listings:', error);
     }
+  };
+
+  const handleViewOffering = async (listingId) => {
+    navigate(`/listings/${listingId}`);
   };
 
     useEffect(() => {
@@ -109,7 +115,7 @@ const InvestmentListings = () => {
               <p>Minimum Investment</p>
               <p className="listing__value">${numberWithCommas(listing.minimum_investment)}</p>
             </div>
-            <button className="listing-btn">View Offering</button>
+            <button className="listing-btn" onClick={() => handleViewOffering(listing.id)}>View Offering</button>
           </div>
         ))}
       </div>

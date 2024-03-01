@@ -8,6 +8,7 @@ import HelpCenter from './HelpCenter'; // Make sure this path is correct
 import InvestmentDetails_1 from './InvestmentDetails_1'; // Adjust the path as necessary
 import TrackRecord from './TrackRecord';
 import InvestmentListings from './components/InvestmentListings';
+import InvestmentDetails from './components/InvestmentDetails';
 import HomePage from './HomePage';
 
 import './App.css';
@@ -24,6 +25,7 @@ function App() {
             <Route path="/investment-details" element={<InvestmentDetails_1 />} />
             <Route path="/track-record" element={<TrackRecord />} />
             <Route path="/listings" element={<InvestmentListings minPrice={-1} maxPrice={-1} sortByRecent={false} propertyType={'none'} />} />
+            <Route path="/listings/:listingId" element={<InvestmentDetails />} /> {/* Route for listing details page */}
             {/* Other routes */}
           </Routes>
         </main>
