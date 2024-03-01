@@ -147,11 +147,22 @@ select {
   transform: translateY(100%);
 }
 
-.listing__location {
-  margin-top: 2.6rem;
+.listing__developer {
+  font-family: "Josefin Sans", sans-serif;
+  color: #6D5D4B;
+  font-weight: 100;
+  line-height: 0;
+  font-size: 0.65rem;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
 }
 
-.listing__price {
+.listing__top {
+  margin-top: 2.8rem;
+}
+
+.listing__bottom {
   margin-bottom: 0.9rem;
 }
 
@@ -163,7 +174,6 @@ p {
   font-family: "Nunito", sans-serif;
   color: #6D5D4B;
   font-weight: 100;
-  line-height: 1.2;
   font-size: 1rem;
   margin-left: 1.3rem;
   margin-right: 1.3rem;
