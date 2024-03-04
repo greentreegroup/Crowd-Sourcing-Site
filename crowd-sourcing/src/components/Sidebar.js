@@ -34,11 +34,6 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/investment-details" className="nav-link">
-              Investment Details
-            </Link>
-          </li>
-          <li className="nav-item">
             <Link to="/help-center" className="nav-link">
               Help Center
             </Link>

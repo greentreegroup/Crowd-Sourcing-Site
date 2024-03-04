@@ -90,7 +90,7 @@ const InvestmentListings = () => {
     <div className="listings">
         {listings.map(listing => (
           <div key={listing.id} className="listing">
-            <img src={listing.photos.split('\n')[0]} alt={listing.name} className="listing__img" />
+            <img src={JSON.parse(listing.photos)[0]} alt={listing.name} className="listing__img" />
             <h5 className="listing__name">{listing.name}</h5>
             <div className="listing__top">
               <p className="listing__developer">{listing.developer}</p>
