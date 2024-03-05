@@ -10,7 +10,7 @@ const FeaturedListings = ({ minPrice, maxPrice, sortByRecent, propertyType }) =>
     {
       id: 1,
       photos: '[\"https://burst.shopifycdn.com/photos/one-storey-home-exterior.jpg?width=1000\"]',
-      name: 'Example Home 1',
+      name: 'Greenfield Estates',
       date_published: '2024-02-14',
       minimum_investment: 100000,
       location: 'Aspen, CO',
@@ -20,8 +20,8 @@ const FeaturedListings = ({ minPrice, maxPrice, sortByRecent, propertyType }) =>
     },
     {
       id: 2,
-      photos: '[\"https://burst.shopifycdn.com/photos/one-storey-home-exterior.jpg?width=1000\"]',
-      name: 'Example Home 2',
+      photos: '[\"https://cf.bstatic.com/xdata/images/hotel/max1280x900/273527557.jpg?k=634eb52c2bd61d1a793e85e9eaf3113291bbb4a7e39f87a3bc798743b4126811&o=&hp=1\"]',
+      name: 'Urban Haven Inn',
       date_published: '2024-02-15',
       minimum_investment: 120000,
       location: 'Savannah, GA',
@@ -31,8 +31,8 @@ const FeaturedListings = ({ minPrice, maxPrice, sortByRecent, propertyType }) =>
     },
     {
       id: 3,
-      photos: '[\"https://burst.shopifycdn.com/photos/one-storey-home-exterior.jpg?width=1000\"]',
-      name: 'Example Home 3',
+      photos: '[\"https://images1.apartments.com/i2/VdJ9tdWRQpevTg2t3YmsQpwVIqrciFcOyDXWkmgcO5E/111/central-city-condominium-atlanta-ga-primary-photo.jpg\"]',
+      name: 'Horizon Heights',
       date_published: '2024-01-15',
       minimum_investment: 145000,
       location: 'Napa Valley, CA',
