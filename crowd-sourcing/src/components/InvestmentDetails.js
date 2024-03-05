@@ -30,6 +30,10 @@ const InvestmentDetails = () => {
     fetchListingDetails(); // Fetch listing details when component mounts
   }, []);
 
+  const numberWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
   // Function to change to the next picture
   const setImageIndex = (index) => {
     setCurrentImageIndex(index);
@@ -70,15 +74,25 @@ const InvestmentDetails = () => {
           </div>
         </div>
         <div className="investment-info">
-          <p>{property.deal_overview}</p>
           <div className="property-details">
-            <p>Price: {property.minimum_investment}</p>
-            <p>Area: Coming Soon</p>
-            <p>Bedrooms: Coming Soon</p>
-            <p>Bathrooms: Coming Soon</p>
-            <p>Year Built: Coming Soon</p>
+            <p>{property.location}</p>
+            <p>Property Type: {property.property_type}</p>
+            <p>Date Published: {property.date_published}</p>
+            <p>Developer: {property.developer}</p>
             <p>Status: {property.availability}</p>
+            <p>Minimum Investment: ${numberWithCommas(property.minimum_investment)}</p>
+            <p>Interest Rate: {property.interest_rate}</p>
+            <p>Target Close Date: {property.target_close_date}</p>
+            <p>Target Hold Period: {property.target_hold_period}</p>
+            <p>Target Net IRR: {property.target_net_irr}</p>
+            <p>Target Equity Multiple: {property.target_equity_multiple}</p>
+            <p>Investment Strategy: {property.investment_strategy}</p>
           </div>
+          <p>{property.deal_overview}</p>
+          <p>Capital Stack:</p>
+          <p>{property.capital_stack}</p>
+          <p>Disclosures:</p>
+          <p>{property.disclosures}</p>
           <div className="property-documents">
             {JSON.parse(property.documents).map((doc, index) => (
               <button key={index} className="download-docs" onClick={() => window.open(doc.url, "_blank")}>
