@@ -1,33 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './FeaturedListings.css'; // Import CSS file
 
 const FeaturedListings = ({ minPrice, maxPrice, sortByRecent, propertyType }) => {
+  const navigate = useNavigate();
   const [listings, setListings] = useState([]);
   const sampleListings = [
     {
       id: 1,
-      photo: 'https://burst.shopifycdn.com/photos/one-storey-home-exterior.jpg?width=1000',
+      photos: '[\"https://burst.shopifycdn.com/photos/one-storey-home-exterior.jpg?width=1000\"]',
       name: 'Example Home 1',
-      property_type: 'House',
       date_published: '2024-02-14',
       minimum_investment: 100000,
+      location: 'Aspen, CO',
+      target_hold_period: '5 years',
+      interest_rate: 0.035,
+      developer: 'Summit Real Estate'
     },
     {
       id: 2,
-      photo: 'https://burst.shopifycdn.com/photos/one-storey-home-exterior.jpg?width=1000',
+      photos: '[\"https://burst.shopifycdn.com/photos/one-storey-home-exterior.jpg?width=1000\"]',
       name: 'Example Home 2',
-      property_type: 'Apartment',
       date_published: '2024-02-15',
       minimum_investment: 120000,
+      location: 'Savannah, GA',
+      target_hold_period: '30 months',
+      interest_rate: 0.042,
+      developer: 'Keystone Ventures'
     },
     {
       id: 3,
-      photo: 'https://burst.shopifycdn.com/photos/one-storey-home-exterior.jpg?width=1000',
+      photos: '[\"https://burst.shopifycdn.com/photos/one-storey-home-exterior.jpg?width=1000\"]',
       name: 'Example Home 3',
-      property_type: 'Apartment',
       date_published: '2024-01-15',
       minimum_investment: 145000,
+      location: 'Napa Valley, CA',
+      target_hold_period: '2 years',
+      interest_rate: 0.051,
+      developer: 'MetroStar Properties'
     },
 
     // Add more sample listings as needed
@@ -52,38 +63,53 @@ const FeaturedListings = ({ minPrice, maxPrice, sortByRecent, propertyType }) =>
     fetchData();
   }, [minPrice, maxPrice, sortByRecent, propertyType]);
 
+  const handleViewOffering = async (listingId) => {
+    navigate(`/listings/${listingId}`);
+  };
+
+  const reformatDate = (dateString) => {
+    const date = new Date(dateString);
+    const year = date.getFullYear().toString().slice(-2);
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${month}/${day}/${year}`;
+  };
+
+  const numberWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
   // Inside the InvestmentListings component
   return (
-    <div className="homes">
+    <div className="featured-listings">
       {listings.map(listing => (
-        <div key={listing.id} className="home">
-          <img src={listing.photo} alt={listing.name} className="home__img" />
-          <h5 className="home__name">{listing.name}</h5>
-          <div className="home__location">
-            <svg>
-              <use xlinkHref="img/sprite.svg#icon-map-pin"></use>
-            </svg>
-            <p>{listing.property_type}</p>
+        <div key={listing.id} className="listing">
+          <img src={JSON.parse(listing.photos)[0]} alt={listing.name} className="listing__img" />
+          <h5 className="listing__name">{listing.name}</h5>
+          <div className="featured-listing__top">
+            <p className="listing__developer">{listing.developer}</p>
           </div>
-          <div className="home__rooms">
-            <svg>
-              <use xlinkHref="img/sprite.svg#icon-profile-male"></use>
-            </svg>
-            <p>{listing.date_published}</p>
+          <div className="listing__detail">
+            <p>Location</p>
+            <p className="listing__value">{listing.location}</p>
           </div>
-          <div className="home__area">
-            <svg>
-              <use xlinkHref="img/sprite.svg#icon-expand"></use>
-            </svg>
-            <p>{listing.minimum_investment}</p>
+          <div className="listing__detail">
+            <p>Date Published</p>
+            <p className="listing__value">{reformatDate(listing.date_published)}</p>
           </div>
-          <div className="home__price">
-            <svg>
-              <use xlinkHref="img/sprite.svg#icon-key"></use>
-            </svg>
-            <p>${listing.minimum_investment}</p>
+          <div className="listing__detail">
+            <p>Target Hold Period</p>
+            <p className="listing__value">{listing.target_hold_period}</p>
           </div>
-          <button className="btn home__btn">Contact realtor</button>
+          <div className="listing__detail">
+            <p>Interest Rate</p>
+            <p className="listing__value">{(listing.interest_rate * 100).toFixed(1)}%</p>
+          </div>
+          <div className="listing__detail listing__bottom">
+            <p>Minimum Investment</p>
+            <p className="listing__value">${numberWithCommas(listing.minimum_investment)}</p>
+          </div>
+          <button className="listing-btn" onClick={() => handleViewOffering(listing.id)}>View Offering</button>
         </div>
       ))}
     </div>
