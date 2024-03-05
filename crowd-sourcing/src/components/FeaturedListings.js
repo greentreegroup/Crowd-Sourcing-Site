@@ -8,7 +8,7 @@ const FeaturedListings = ({ minPrice, maxPrice, sortByRecent, propertyType }) =>
   const [listings, setListings] = useState([]);
   const sampleListings = [
     {
-      id: 1,
+      id: 2,
       photos: '[\"https://burst.shopifycdn.com/photos/one-storey-home-exterior.jpg?width=1000\"]',
       name: 'Greenfield Estates',
       date_published: '2024-02-14',
@@ -19,7 +19,7 @@ const FeaturedListings = ({ minPrice, maxPrice, sortByRecent, propertyType }) =>
       developer: 'Summit Real Estate'
     },
     {
-      id: 2,
+      id: 3,
       photos: '[\"https://cf.bstatic.com/xdata/images/hotel/max1280x900/273527557.jpg?k=634eb52c2bd61d1a793e85e9eaf3113291bbb4a7e39f87a3bc798743b4126811&o=&hp=1\"]',
       name: 'Urban Haven Inn',
       date_published: '2024-02-15',
@@ -30,7 +30,7 @@ const FeaturedListings = ({ minPrice, maxPrice, sortByRecent, propertyType }) =>
       developer: 'Keystone Ventures'
     },
     {
-      id: 3,
+      id: 4,
       photos: '[\"https://images1.apartments.com/i2/VdJ9tdWRQpevTg2t3YmsQpwVIqrciFcOyDXWkmgcO5E/111/central-city-condominium-atlanta-ga-primary-photo.jpg\"]',
       name: 'Horizon Heights',
       date_published: '2024-01-15',
