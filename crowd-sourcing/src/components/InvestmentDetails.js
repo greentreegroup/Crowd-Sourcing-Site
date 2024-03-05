@@ -34,6 +34,14 @@ const InvestmentDetails = () => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
+  const reformatDate = (dateString) => {
+    const date = new Date(dateString);
+    const year = date.getFullYear().toString().slice(-2);
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${month}/${day}/${year}`;
+  };
+
   // Function to change to the next picture
   const setImageIndex = (index) => {
     setCurrentImageIndex(index);
@@ -76,21 +84,21 @@ const InvestmentDetails = () => {
         <div className="investment-info">
           <div className="property-details">
             <p>{property.location}</p>
-            <p>Property Type: {property.property_type}</p>
-            <p>Date Published: {property.date_published}</p>
+            <p className="investment-info-item">Property Type: {property.property_type}</p>
+            <p>Date Published: {reformatDate(property.date_published)}</p>
             <p>Developer: {property.developer}</p>
             <p>Status: {property.availability}</p>
             <p>Minimum Investment: ${numberWithCommas(property.minimum_investment)}</p>
-            <p>Interest Rate: {property.interest_rate}</p>
-            <p>Target Close Date: {property.target_close_date}</p>
+            <p>Interest Rate: {(property.interest_rate * 100).toFixed(1)}%</p>
+            <p>Target Close Date: {reformatDate(property.target_close_date)}</p>
             <p>Target Hold Period: {property.target_hold_period}</p>
-            <p>Target Net IRR: {property.target_net_irr}</p>
-            <p>Target Equity Multiple: {property.target_equity_multiple}</p>
+            <p>Target Net IRR: {(property.target_net_irr * 100).toFixed(1)}%</p>
+            <p>Target Equity Multiple: {property.target_equity_multiple}x</p>
             <p>Investment Strategy: {property.investment_strategy}</p>
           </div>
           <p>{property.deal_overview}</p>
           <p>Capital Stack:</p>
-          <p>{property.capital_stack}</p>
+          <p className="capital-stack">{property.capital_stack}</p>
           <p>Disclosures:</p>
           <p>{property.disclosures}</p>
           <div className="property-documents">

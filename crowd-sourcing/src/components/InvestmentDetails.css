@@ -102,3 +102,11 @@
   /* Hover effect */
   background-color: #B28451;
 }
+
+.investment-info-item {
+  text-transform: capitalize;
+}
+
+.capital-stack {
+  white-space: pre-line;
+}
