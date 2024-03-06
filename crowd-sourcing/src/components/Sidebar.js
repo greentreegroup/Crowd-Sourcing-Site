@@ -43,6 +43,11 @@ const Sidebar = () => {
               Track Record
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to="/HelpCenter2" className="nav-link">
+              Help Center 2
+            </Link>
+          </li>
         </ul>
       )}
     </div>
