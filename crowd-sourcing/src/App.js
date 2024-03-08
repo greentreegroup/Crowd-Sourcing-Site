@@ -10,6 +10,7 @@ import InvestmentListings from './components/InvestmentListings';
 import InvestmentDetails from './components/InvestmentDetails';
 import HomePage from './HomePage';
 import HelpCenter2 from './HelpCenter2';
+import EducationPage from './EducationPage';
 
 import './App.css';
 
@@ -22,6 +23,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/help-center" element={<HelpCenter />} />
+            <Route path="/EducationPage" element={<EducationPage />} />
             <Route path="/HelpCenter2" element={<HelpCenter2 />} />
             <Route path="/track-record" element={<TrackRecord />} />
             <Route path="/listings" element={<InvestmentListings minPrice={-1} maxPrice={-1} sortByRecent={false} propertyType={'none'} />} />

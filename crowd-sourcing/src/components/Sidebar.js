@@ -48,6 +48,11 @@ const Sidebar = () => {
               Help Center 2
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to="/EducationPage" className="nav-link">
+              Education
+            </Link>
+          </li>
         </ul>
       )}
     </div>
