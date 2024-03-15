@@ -1,8 +1,9 @@
+
 import React, { useState } from 'react';
 import './SignUpForm.css';
-import bcrypt from 'bcryptjs'; // Dodane do hashowania hasła
+import bcrypt from 'bcryptjs';
 
-const saltRounds = 10; // Liczba rund dla algorytmu hashowania
+const saltRounds = 10;
 
 const SignUpForm = ({ onClose }) => {
   const [formData, setFormData] = useState({
@@ -15,6 +16,8 @@ const SignUpForm = ({ onClose }) => {
     Is_developer: false,
   });
 
+  const [error, setError] = useState(null);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -26,15 +29,12 @@ const SignUpForm = ({ onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    
     if (formData.password !== formData.password_repet) {
-      console.error('Error: Password aren not simillar.');
+      setError('Error: Passwords do not match.');
       return;
     }
 
-    
     const hashedPassword = await bcrypt.hash(formData.password, saltRounds);
-    const hashedPassword_Repet = await bcrypt.hash(formData.password_repet, saltRounds);
 
     const url =
       'https://prod-59.southeastasia.logic.azure.com:443/workflows/0091e6cd1300433eaedd67486ec575fb/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=hfjJjtqRIk7oL1JbPl8MP50fDfo6gC6yv-d4marzYxg';
@@ -45,8 +45,7 @@ const SignUpForm = ({ onClose }) => {
 
     const body = JSON.stringify({
       ...formData,
-      password: hashedPassword, 
-      password: hashedPassword_Repet
+      password: hashedPassword,
     });
 
     try {
@@ -57,15 +56,22 @@ const SignUpForm = ({ onClose }) => {
       });
 
       if (response.ok) {
-        console.log('Account has been creted.');
+        console.log('Data has been sent successfully.');
+        onClose();
       } else {
-        console.error('Error:', response.statusText);
+        console.error('Error while sending data:', response.statusText);
+
+        // Dodaj obsługę błędu 403 (Forbidden)
+        if (response.status === 403) {
+          setError('Error: Email already exists. Please use a different email.');
+        } else {
+          setError('An error occurred. Please try again later.');
+        }
       }
     } catch (error) {
       console.error('Error:', error.message);
+      setError('An error occurred. Please try again later.');
     }
-
-    onClose();
   };
 
   return (
@@ -150,7 +156,6 @@ const SignUpForm = ({ onClose }) => {
               placeholder="Phone Number"
               value={formData.phone_number}
               onChange={handleChange}
-              required
             />
           </div>
 
@@ -169,6 +174,8 @@ const SignUpForm = ({ onClose }) => {
               }
             />
           </div>
+
+          {error && <div className="error-message">{error}</div>}
 
           <button type="submit" className="submit-btn">
             Sign Up

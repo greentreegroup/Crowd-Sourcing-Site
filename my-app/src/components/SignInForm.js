@@ -1,13 +1,20 @@
+
 import React, { useState } from 'react';
-import './SignInForm.css'; // Create and import corresponding CSS for styling
+import './SignInForm.css';
+import './ResetPasswordForm.css';
+import SignInButton from './SignInButton';
+import ResetPassword from './ResetPasswordForm';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection      
+import UserProfil  from './UserProfil';
 
 const SignInForm = ({ onClose }) => {
     const [formData, setFormData] = useState({
-        email: '',
-        password: ''
+        email_address: '', 
+        Password: '' 
     });
-
+    const navigate = useNavigate(); // Hook for navigation
     const [error, setError] = useState(null);
+    const [resetPasswordClicked, setResetPasswordClicked] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -27,14 +34,21 @@ const SignInForm = ({ onClose }) => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    email_addres: formData.email, // Zmienione na "email_addres" zgodnie ze schematem
-                    Password: formData.password, // Zmienione na "Password" zgodnie ze schematem
+                    email_addres: formData.email_address, 
+                    Password: formData.Password, 
                 }),
             });
 
+            // Handle the response based on your requirements
             if (response.ok) {
+                const userId = await response.text(); // Assuming the response is just a plain text
                 console.log('Login successful!');
-                onClose();
+                console.log('Response data:', userId); // Log the user ID
+                onClose(); // Close the form or redirect to another page
+                navigate(`/userProfile/${userId}`); 
+            } else if (response.status === 401 || response.status === 403) {
+                console.error('Login failed: Unauthorized access');
+                setError('Incorrect email or password. Please try again.');
             } else if (response.status === 404) {
                 console.error('Login failed: User not found');
                 setError('Incorrect email or password. Please try again.');
@@ -48,42 +62,55 @@ const SignInForm = ({ onClose }) => {
         }
     };
 
+    const handleForgetPasswordClick = () => {
+        setResetPasswordClicked(true);
+    };
+
     return (
         <div className="signin-form-container">
             <div className="signin-form">
-                <h2>Sign In</h2>
-                <button className="close-btn" onClick={onClose}>X</button>
-                <form onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="Email"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
+                {resetPasswordClicked ? (
+                    <ResetPassword onClose={() => setResetPasswordClicked(false)} />
+                ) : (
+                    <>
+                        <h2>Sign In</h2>
+                        <button className="close-btn" onClick={onClose}>X</button>
+                        <form onSubmit={handleSubmit}>
+                            <div className="form-group">
+                                <label htmlFor="email">Email</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email_address" 
+                                    placeholder="Email"
+                                    value={formData.email_address} 
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                            </div>
 
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            placeholder="Password"
-                            value={formData.password}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
+                            <div className="form-group">
+                                <label htmlFor="password">Password</label>
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="Password" 
+                                    placeholder="Password"
+                                    value={formData.Password}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                            </div>
 
-                    {error && <div className="error-message">{error}</div>}
-
-                    <button type="submit" className="submit-btn">Sign In</button>
-                </form>
+                            {error && <div className="error-message">{error}</div>}
+                            
+                            <button type="submit" className="submit-btn">Sign In</button>
+                            <button type="button" className="reset-btn" onClick={handleForgetPasswordClick}>
+                                Forget Password
+                            </button>
+                        </form>
+                    </>
+                )}
             </div>
         </div>
     );
