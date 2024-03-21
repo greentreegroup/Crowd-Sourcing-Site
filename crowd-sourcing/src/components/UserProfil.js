@@ -9,9 +9,9 @@ const UserProfil = () => {
   const [error, setError] = useState(null);
   const [isChangeInfoOpen, setChangeInfoOpen] = useState(false);
 
-  const { user_id } = useParams();
+  const { userId } = useParams();
 
-  const apiUrl = `https://prod-04.southeastasia.logic.azure.com/workflows/59546a02895f4ab2b5f2c2cde57f2ed6/triggers/manual/paths/invoke/user_id/${user_id}?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=LElgT0NEd674m9Pm0o7ybQNGakf-58DkcaLM-KX1p6I`;
+  const apiUrl = `https://prod-04.southeastasia.logic.azure.com/workflows/59546a02895f4ab2b5f2c2cde57f2ed6/triggers/manual/paths/invoke/user_id/${userId}?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=LElgT0NEd674m9Pm0o7ybQNGakf-58DkcaLM-KX1p6I`;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,7 +65,7 @@ const UserProfil = () => {
           <button onClick={handleOpenChangeInfo}>Change Info</button>
 
           {/* Render the Change Info form if open and pass user_id as prop */}
-          {isChangeInfoOpen && <ChangeInfoForm user_id={user_id} onClose={handleCloseChangeInfo} />}
+          {isChangeInfoOpen && <ChangeInfoForm user_id={userId} onClose={handleCloseChangeInfo} />}
         </div>
       )}
     </div>
