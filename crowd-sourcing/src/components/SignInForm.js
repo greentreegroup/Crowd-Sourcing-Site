@@ -5,7 +5,7 @@ import './ResetPasswordForm.css';
 import SignInButton from './SignInButton';
 import ResetPassword from './ResetPasswordForm';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection      
-import UserProfil  from './UserProfil';
+import UserProfile  from './UserProfile';
 
 const SignInForm = ({ onClose }) => {
     const [formData, setFormData] = useState({

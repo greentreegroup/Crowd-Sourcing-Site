@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ChangeInfoForm from './ChangeInfoForm';
 
-const UserProfil = () => {
+const UserProfile = () => {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -72,4 +72,4 @@ const UserProfil = () => {
   );
 };
 
-export default UserProfil;
+export default UserProfile;
