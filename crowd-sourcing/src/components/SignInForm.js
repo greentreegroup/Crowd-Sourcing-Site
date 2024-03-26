@@ -6,6 +6,7 @@ import SignInButton from './SignInButton';
 import ResetPassword from './ResetPasswordForm';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection      
 import UserProfile  from './UserProfile';
+import Cookies from 'js-cookie';
 
 const SignInForm = ({ onClose }) => {
     const [formData, setFormData] = useState({
@@ -45,6 +46,7 @@ const SignInForm = ({ onClose }) => {
                 console.log('Login successful!');
                 console.log('Response data:', userId); // Log the user ID
                 onClose(); // Close the form or redirect to another page
+                Cookies.set('isLoggedIn', 'true', { expires: 7 }); // NEW: Set cookie on successful login
                 navigate(`/userProfile/${userId}`); 
             } else if (response.status === 401 || response.status === 403) {
                 console.error('Login failed: Unauthorized access');

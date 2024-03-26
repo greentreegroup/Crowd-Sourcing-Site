@@ -1,7 +1,7 @@
 //App.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
+import Cookies from 'js-cookie';
 import Sidebar from './components/Sidebar';
 
 import HelpCenter from './HelpCenter'; // Make sure this path is correct
@@ -16,6 +16,16 @@ import EducationPage from './EducationPage';
 import './App.css';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const loggedInStatus = Cookies.get('isLoggedIn');
+    if (loggedInStatus === 'true') {
+      setIsLoggedIn(true);
+    }
+    console.log(`isLoggedIn: ${isLoggedIn}`);
+  }, []);
+
   return (
     <Router>
       <div className="App">
