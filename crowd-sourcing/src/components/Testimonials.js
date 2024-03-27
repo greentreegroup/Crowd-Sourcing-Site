@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Testimonials.css'; // Import CSS file for styling
 
 function Testimonials() {
+  const [currentTestimonial, setCurrentTestimonial] = useState(null);
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
@@ -31,6 +32,10 @@ function Testimonials() {
       }
       const data = await response.json();
       setTestimonials(data);
+      if (!currentTestimonial) {
+        // Set the current testimonial only if there isn't one already
+        setCurrentTestimonial(data[0]);
+      }
     } catch (error) {
       console.error('Error fetching testimonials:', error);
     }
@@ -38,14 +43,12 @@ function Testimonials() {
 
   return (
     <div className="testimonials-container"> {/* Container for testimonials */}
-      {testimonials.length > 0 ? ( // Check if testimonials array is not empty
-        testimonials.map((testimonial, index) => (
-          <div className="testimonial-card" key={index}>
-            <p>Name: {testimonial.Name}</p>
-            <p>Date: {testimonial.Date}</p>
-            <p>Comment: {testimonial.Comment}</p>
-          </div>
-        ))
+      {currentTestimonial ? ( // Check if there is a current testimonial
+        <div className="testimonial-card">
+          <p>Name: {currentTestimonial.Name}</p>
+          <p>Date: {currentTestimonial.Date}</p>
+          <p>Comment: {currentTestimonial.Comment}</p>
+        </div>
       ) : (
         <p>Loading testimonials...</p> // Display loading message while fetching data
       )}
