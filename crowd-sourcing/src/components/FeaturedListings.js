@@ -6,55 +6,14 @@ import './FeaturedListings.css'; // Import CSS file
 const FeaturedListings = ({ minPrice, maxPrice, sortByRecent, propertyType }) => {
   const navigate = useNavigate();
   const [listings, setListings] = useState([]);
-  const sampleListings = [
-    {
-      id: 2,
-      photos: '[\"https://burst.shopifycdn.com/photos/one-storey-home-exterior.jpg?width=1000\"]',
-      name: 'Greenfield Estates',
-      date_published: '2024-02-14',
-      minimum_investment: 100000,
-      location: 'Aspen, CO',
-      target_hold_period: '5 years',
-      interest_rate: 0.035,
-      developer: 'Summit Real Estate'
-    },
-    {
-      id: 3,
-      photos: '[\"https://cf.bstatic.com/xdata/images/hotel/max1280x900/273527557.jpg?k=634eb52c2bd61d1a793e85e9eaf3113291bbb4a7e39f87a3bc798743b4126811&o=&hp=1\"]',
-      name: 'Urban Haven Inn',
-      date_published: '2024-02-15',
-      minimum_investment: 120000,
-      location: 'Savannah, GA',
-      target_hold_period: '30 months',
-      interest_rate: 0.042,
-      developer: 'Keystone Ventures'
-    },
-    {
-      id: 4,
-      photos: '[\"https://images1.apartments.com/i2/VdJ9tdWRQpevTg2t3YmsQpwVIqrciFcOyDXWkmgcO5E/111/central-city-condominium-atlanta-ga-primary-photo.jpg\"]',
-      name: 'Horizon Heights',
-      date_published: '2024-01-15',
-      minimum_investment: 145000,
-      location: 'Napa Valley, CA',
-      target_hold_period: '2 years',
-      interest_rate: 0.051,
-      developer: 'MetroStar Properties'
-    },
-
-    // Add more sample listings as needed
-  ];
   useEffect(() => {
     const fetchData = async () => {
       try {
-        /*
         const response = await axios.get(
           `https://prod-44.southeastasia.logic.azure.com/workflows/2dd568592654417e8216e170db743a61/triggers/manual/paths/invoke/min_price/${minPrice}/max_price/${maxPrice}/sort_by_recent/${sortByRecent}/property_type/${propertyType}?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xqoE7trIuqQ2NkKl4zVVv3kijiPo2GZqT6MqFZuiIsw`
         );
 
-        setListings(response.data.body);
-
-        */
-        setListings(sampleListings);
+        setListings(response.data.body.slice(0, 3));
       } catch (error) {
         console.error('Error fetching listings:', error);
       }
