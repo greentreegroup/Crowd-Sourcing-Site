@@ -6,6 +6,7 @@
     "sidebar header"
     "sidebar main";
   /* Other styles */
+  
 }
 
 .sidebar {
@@ -16,5 +17,6 @@
 .App-main {
   grid-area: main;
   /* Other styles */
+  margin-top: 40px; /* Adjust as needed */
 }
 

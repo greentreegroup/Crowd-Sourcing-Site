@@ -1,60 +1,64 @@
+// Sidebar.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
+import SignInForm from './SignInForm.js';
+import SignUpForm from './SignUpForm.js';
 
 const Sidebar = () => {
-  const [isNavVisible, setIsNavVisible] = useState(false);
-  const [sidebarWidth, setSidebarWidth] = useState('75px'); // Default narrow width
+  const [showSignIn, setShowSignIn] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
 
-  const toggleNav = () => {
-    setIsNavVisible(!isNavVisible);
-    setSidebarWidth(isNavVisible ? '75px' : '250px'); // Toggle between narrow and wide width
+  const handleSignInClick = () => {
+    setShowSignIn(true);
+    setShowSignUp(false);
   };
 
-  const sidebarStyle = {
-    width: sidebarWidth,
-    // Add other styles if needed
+  const handleSignUpClick = () => {
+    setShowSignUp(true);
+    setShowSignIn(false);
+  };
+
+  const closeForms = () => {
+    setShowSignIn(false);
+    setShowSignUp(false);
   };
 
   return (
-    <div className="sidebar" style={sidebarStyle}>
-      <button className="nav-btn" onClick={toggleNav}>☰</button>
-      {isNavVisible && (
-        <ul className="sidebar-nav">
-          <li className="nav-item">
-            {/* Use Link component for SPA behavior */}
-            <Link to="/" className="nav-link">
-               Home
-            </Link>
-          </li>
-          {/* Adjust the paths as per your routing setup */}
-          <li className="nav-item">
-            <Link to="/listings" className="nav-link">
-              Listings
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/help-center" className="nav-link">
-              Help Center
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/track-record" className="nav-link">
-              Track Record
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/HelpCenter2" className="nav-link">
-              Help Center 2
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/EducationPage" className="nav-link">
-              Education
-            </Link>
-          </li>
-        </ul>
-      )}
+    <div className="sidebar">
+      <ul className="sidebar-nav">
+        {/* Your existing navigation items */}
+        <li className="nav-item">
+          <Link to="/" className="nav-link">
+            Home
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/listings" className="nav-link">
+            Listings
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/track-record" className="nav-link">
+            Track Record
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/HelpCenter2" className="nav-link">
+            Help Center
+          </Link>
+        </li>
+      </ul>
+      <div className="auth-links">
+        <button onClick={handleSignInClick} className="nav-link">
+          Sign In
+        </button>
+        <button onClick={handleSignUpClick} className="nav-link">
+          Sign Up
+        </button>
+      </div>
+      {showSignIn && <SignInForm onClose={closeForms} />}
+      {showSignUp && <SignUpForm onClose={closeForms} />}
     </div>
   );
 };

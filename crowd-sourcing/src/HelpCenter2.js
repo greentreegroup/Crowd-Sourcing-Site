@@ -21,29 +21,78 @@ const HelpCenter = () => {
     setSearchQuery(e.target.value);
   };
 
+  // Sample data for featured articles
+  const featuredArticles = [
+    { 
+      id: 4,
+      title: 'Company Related Articles',
+      url: 'https://www.springer.capital/',
+      image: 'nexter.jpg',
+    },
+    { 
+      id: 5,
+      title: 'Real Estate Crowdfunding Related Articles',
+      url: 'https://www.investopedia.com/articles/investing/072514/real-estate-and-crowdfunding-new-path-investors.asp',
+      image: 'RSCF.jpg',
+    },
+    { 
+      id: 6,
+      title: 'Real Estate Laws Article',
+      url: 'https://iclg.com/practice-areas/real-estate-laws-and-regulations/usa',
+      image: 'REL.jpg',
+    },
+  ];
+
   return (
-    <div className="help-center-container">
-      <h2 className='head-line'>Help Center</h2>
-      <input
-        type="text"
-        value={searchQuery}
-        onChange={handleInputChange}
-        placeholder="Search for help..."
-        className="search-input"
-      />
-      <button onClick={handleSearch} className="search-button">Search</button>
-      {searchResult.length > 0 && (
-        <div className="search-results">
-          {searchResult.map((result, index) => (
-            <div key={index} className="search-result-card">
-              <h3>{result.Category}</h3>
-              <p><strong>Questions:</strong> {result.Questions}</p>
-              <p><strong>Answers:</strong> {result.Answers}</p>
-            </div>
+    <>
+    <div class="section-wrapper">
+      <div className="help-center-container">
+        <h2 className='head-line'>Help Center</h2>
+        <div className="search-container">
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={handleInputChange}
+            placeholder="Search for help..."
+            className="search-input"
+          />
+          <button onClick={handleSearch} className="search-button">Search</button>
+        </div>
+        {searchResult.length > 0 && (
+          <div className="search-results">
+            {searchResult.map((result, index) => (
+              <div key={index} className="search-result-card">
+                <h3>{result.Category}</h3>
+                <p><strong>Questions:</strong> {result.Questions}</p>
+                <p><strong>Answers:</strong> {result.Answers}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="featured-articles-container">
+        <h2 className="featured-articles-heading">Featured Articles</h2>
+        <div className="featured-articles">
+          {featuredArticles.map((article) => (
+            <a key={article.id} href={article.url} target="_blank" rel="noopener noreferrer" className="article-link">
+              <div className="article-thumbnail">
+                <img src={`/img/${article.image}`} alt={article.title} />
+              </div>
+              <h3 className="article-title">{article.title}</h3>
+            </a>
           ))}
         </div>
-      )}
-    </div>
+      </div>
+       {/* Contact Section */}
+       <div className="contact-container">
+        <h2>Contact Us</h2>
+        <p>Email: example@example.com</p>
+          <p>Phone: +1 (123) 456-7890</p>
+          <p>Address: 123 Main St, City, Country</p>
+      </div>
+      </div>
+    </>
   );
 };
 

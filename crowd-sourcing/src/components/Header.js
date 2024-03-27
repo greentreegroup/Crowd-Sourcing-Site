@@ -15,10 +15,6 @@ const Header = ({ onSignInClick, onSignUpClick }) => {
         <img src="/img/logo-techcrunch.png" alt="Seen on logo 3" />
         <img src="/img/logo-bi.png" alt="Seen on logo 4" />
       </div>
-      <div className="header-buttons">
-        <SignInButton onClick={onSignInClick} />
-        <SignUpButton onClick={onSignUpClick} />
-      </div>
     </header>
   );
 };

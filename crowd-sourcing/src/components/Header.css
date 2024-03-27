@@ -1,6 +1,7 @@
 /*Header.css*/
 *, *::before, *::after {    /* Prevent Header from extruding passed the window size */
   box-sizing: border-box;
+  margin-top: 0px;
 }
 .header {
     background-color: #54483A;

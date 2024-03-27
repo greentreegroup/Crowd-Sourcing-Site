@@ -1,75 +1,43 @@
+/* Sidebar.css */
 .sidebar {
-    background-color: #c69963;
-    grid-column: sidebar-start / sidebar-end;
-    grid-row: 1 / -1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    grid-template-columns: [sidebar-start] auto [sidebar-end] 1fr;
-    grid-template-rows: auto 1fr;
-    height: 100%; 
-    width: 50px; /* Default narrow width */
-    transition: width 0.3s ease-in-out; /* Smooth transition for width change */
-    /* other styles... */
-  }
-
-.nav-btn {
-  background-color: #c69963; /* Orange background */
-  color: #ffffff; /* White text */
-  font-size: 24px; /* Adjust size as needed */
-  border: none; /* Remove default border */
-  padding: 10px 15px; /* Adjust padding as needed */
-  cursor: pointer; /* Cursor pointer for better UX */
-  outline: none; /* Remove focus outline */
+  background-color: #c69963;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px; /* Adjust height of the sidebar */
+  width: 100%; /* Stretch the sidebar across the whole width */
+  position: fixed; /* Position the sidebar at the top of the page */
+  top: 0; /* Stick to the top */
+  z-index: 1000; /* Ensure it stays on top of other content */
 }
-  
-  .sidebar-nav {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .nav-item {
-    padding: 10px;
-  }
-  
-  .nav-link {
-    text-decoration: none;
-    color: #ffffff; /* White text */
-    border-bottom: 2px solid none;
-  }
-  
-  .nav-link:hover {
-    border-bottom: 2px solid white; /* on hover a white bar apears under the nav link */
-    transition: border-bottom 0.1s ease; /*it will make the bar appearance slow*/
-  }
-  
-  .icon-dashboard, .icon-messages, .icon-settings {
-    margin-right: 8px;
-    /* Add icon styles or use a font icon library */
-  }
 
-  /* Slightly narrower sidebar when the window width is less than 1024px */
-  @media (max-width: 1024px) {
-    .sidebar {
-      width: 150px;
-    }
-  }
-  
-/* Even narrower sidebar when the window width is less than 768px */
-@media (max-width: 768px) {
-    .sidebar {
-      width: 100px;
-    }
-  }
-  
-/* Minimal sidebar width when the window width is less than 480px */
-@media (max-width: 480px) {
-    .sidebar {
-      width: 50px;
-    }
-  }
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
 
+.nav-item {
+  padding: 10px;
+}
 
-  
+.nav-link {
+  text-decoration: none;
+  color: black; /* White text */
+  background-color: #c69963;
+}
+
+.auth-links {
+  display: flex;
+  margin-right: 10px; /* Add margin to the right side of the auth-links container */
+}
+
+.auth-links .nav-link {
+  margin-left: 10px;
+}
+
+/* Add margin between sidebar and content */
+.content {
+  margin-top: 80px; /* Adjust as needed */
+}
