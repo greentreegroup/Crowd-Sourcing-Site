@@ -14,6 +14,7 @@ import HelpCenter2 from './HelpCenter2';
 
 
 import './App.css';
+import Chatbot from './Chatbot';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -41,6 +42,7 @@ function App() {
             {/* Other routes */}
           </Routes>
         </main>
+        <Chatbot />
       </div>
     </Router>
   );
