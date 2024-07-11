@@ -1,10 +1,17 @@
-.chat{
-    font-family: "Josefin Sans", sans-serif;
-    width: 100%;
-    height: 50rem;
+.chatbot-container {
+  position: fixed;
+  bottom: 20px; /* Adjust based on your preference */
+  right: 20px; /* Adjust based on your preference */
+  width: 400px; /* Adjust based on your preference */
+  height: 600px; /* Adjust based on your preference */
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  z-index: 1000; /* Ensure it appears above other content */
 }
 
-div{
-    width: 25%;
-    color: blue;
+.chatbot-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
