@@ -21,9 +21,23 @@
   margin-top: 40px; /* Adjust as needed */
 }
 
-/* Media query for chatbot container */
+/* Regular styles for chatbot container */
+.chatbot-container {
+  /* Default styles */
+  width: 100%; /* Adjust width as needed */
+  height: 600px; /* Default height for larger screens */
+}
+
+/* Media query for smaller screens */
 @media (max-width: 768px) {
   .chatbot-container {
     height: 400px; /* Adjust height for smaller screens */
+  }
+}
+
+/* Additional media queries for very small screens */
+@media (max-width: 480px) {
+  .chatbot-container {
+    height: 300px; /* Adjust height for very small screens */
   }
 }
