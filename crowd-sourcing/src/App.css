@@ -1,4 +1,6 @@
-/*App.css*/ 
+/* App.css */
+
+/* Existing styles */
 .App {
   display: grid;
   grid-template-columns: [sidebar-start] auto [sidebar-end] 1fr;
@@ -6,7 +8,6 @@
     "sidebar header"
     "sidebar main";
   /* Other styles */
-  
 }
 
 .sidebar {
@@ -20,3 +21,9 @@
   margin-top: 40px; /* Adjust as needed */
 }
 
+/* Media query for chatbot container */
+@media (max-width: 768px) {
+  .chatbot-container {
+    height: 400px; /* Adjust height for smaller screens */
+  }
+}
