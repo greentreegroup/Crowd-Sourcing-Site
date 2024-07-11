@@ -28,3 +28,17 @@
   border-radius: 4px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .chatbot-container {
+    height: 400px; /* Adjust height for smaller screens */
+  }
+}
+
+/* Additional media queries for very small screens */
+@media (max-width: 480px) {
+  .chatbot-container {
+    height: 300px; /* Adjust height for very small screens */
+  }
+}
