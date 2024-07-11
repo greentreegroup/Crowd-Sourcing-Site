@@ -4,14 +4,12 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import Sidebar from './components/Sidebar';
 
-
 import TrackRecord from './TrackRecord';
 import InvestmentListings from './components/InvestmentListings';
 import InvestmentDetails from './components/InvestmentDetails';
 import UserProfile from './components/UserProfile';
 import HomePage from './HomePage';
 import HelpCenter2 from './HelpCenter2';
-
 
 import './App.css';
 import Chatbot from './Chatbot';
