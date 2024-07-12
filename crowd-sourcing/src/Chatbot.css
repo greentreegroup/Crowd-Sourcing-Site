@@ -1,44 +1,46 @@
-.chatbot-container {
-  position: fixed;
-  bottom: 20px; /* Distance from the bottom of the viewport */
-  right: 20px; /* Distance from the right side of the viewport */
-  width: 400px; /* Width of the chatbot */
-  height: auto;
-  border: 1px solid #ccc; /* Optional border */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow for visual effect */
-  background-color: white; /* Background color */
-  z-index: 1000; /* Ensure it appears above other content */
-}
+/* Chatbot.css */
 
-.chatbot-iframe {
+.chatbot-container {
   width: 100%;
-  height: 600px; /* Height of the chatbot iframe */
-  border: none;
+  height: 600px; /* Default maximum height */
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1000; /* Ensure it appears above other content */
+  background: white; /* Background color for chatbot container */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+  transition: height 0.3s ease; /* Smooth transition for height changes */
 }
 
 .chatbot-toggle {
   position: absolute;
-  top: -30px; /* Adjust based on your preference */
-  right: 0;
-  background-color: #0078d7; /* Button color */
+  top: 10px;
+  right: 10px;
+  z-index: 1001; /* Ensure it appears above the iframe */
+  padding: 10px 20px;
+  background: #0078d7;
   color: white;
   border: none;
-  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
-  border-radius: 4px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.chatbot-iframe {
+  width: 100%;
+  height: calc(100% - 40px); /* Adjust height to account for the toggle button */
+  border: none;
 }
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
   .chatbot-container {
-    height: 400px; /* Adjust height for smaller screens */
+    height: 400px;
   }
 }
 
-/* Additional media queries for very small screens */
 @media (max-width: 480px) {
   .chatbot-container {
-    height: 300px; /* Adjust height for very small screens */
+    height: 300px;
   }
 }
