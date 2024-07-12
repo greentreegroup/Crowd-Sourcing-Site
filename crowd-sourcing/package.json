@@ -1,7 +1,7 @@
 {
   "name": "crowd-sourcing",
   "version": "0.1.0",
-  "homepage": "http://springer.properties",
+  "homepage": "https://springer.properties",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
