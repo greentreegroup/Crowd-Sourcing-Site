@@ -12,8 +12,10 @@ const Chatbot = () => {
   useEffect(() => {
     const handleResize = () => {
       const vh = window.innerHeight * 0.01;
-      const minHeight = 400;
-      const dynamicHeight = Math.max(vh * 100, minHeight);
+      const minHeight = 400; // Minimum height of the chatbot
+      const maxHeight = 600; // Default maximum height of the chatbot
+      const dynamicHeight = Math.min(Math.max(vh * 100 - 40, minHeight), maxHeight); // Adjust for button height
+
       if (chatbotRef.current) {
         chatbotRef.current.style.height = `${dynamicHeight}px`;
       }
