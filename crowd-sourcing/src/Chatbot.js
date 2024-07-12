@@ -1,15 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Chatbot.css';
 
 const Chatbot = () => {
   const [isMinimized, setIsMinimized] = useState(false);
+  const chatbotRef = useRef(null);
 
   const toggleChatbot = () => {
     setIsMinimized(!isMinimized);
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      const vh = window.innerHeight * 0.01;
+      const minHeight = 400;
+      const dynamicHeight = Math.max(vh * 100, minHeight);
+      if (chatbotRef.current) {
+        chatbotRef.current.style.height = `${dynamicHeight}px`;
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <div className="chatbot-container">
+    <div ref={chatbotRef} className="chatbot-container">
       <button className="chatbot-toggle" onClick={toggleChatbot}>
         {isMinimized ? 'Open Chat' : 'Close Chat'}
       </button>
