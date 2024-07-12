@@ -2,7 +2,7 @@
 
 .chatbot-container {
   width: 100%;
-  height: 600px; /* Default maximum height */
+  max-height: 600px; /* Maximum height for larger screens */
   overflow: hidden;
   position: fixed;
   bottom: 0;
@@ -32,15 +32,14 @@
   border: none;
 }
 
-/* Media query for smaller screens */
 @media (max-width: 768px) {
   .chatbot-container {
-    height: 400px;
+    height: 400px; /* Adjust height for smaller screens */
   }
 }
 
 @media (max-width: 480px) {
   .chatbot-container {
-    height: 300px;
+    height: 300px; /* Adjust height for very small screens */
   }
 }
