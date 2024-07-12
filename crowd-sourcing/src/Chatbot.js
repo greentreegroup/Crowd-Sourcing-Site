@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Chatbot.css';
 
 const Chatbot = () => {
   const [isMinimized, setIsMinimized] = useState(false);
-  const chatbotRef = useRef(null);
+  const [iframeHeight, setIframeHeight] = useState(600); // Default height
 
   const toggleChatbot = () => {
     setIsMinimized(!isMinimized);
@@ -11,25 +11,20 @@ const Chatbot = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      const vh = window.innerHeight;
-      const minHeight = 400; // Minimum height of the chatbot
-      const maxHeight = 600; // Default maximum height of the chatbot
-      const buttonHeight = 40; // Height reserved for the button
-      const dynamicHeight = Math.min(Math.max(vh - buttonHeight, minHeight), maxHeight);
-
-      if (chatbotRef.current) {
-        chatbotRef.current.style.height = `${dynamicHeight}px`;
-      }
+      const availableHeight = window.innerHeight - 50; // 50px for the close button
+      setIframeHeight(Math.min(600, availableHeight));
     };
 
-    handleResize();
     window.addEventListener('resize', handleResize);
+    handleResize(); // Initial call
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (
-    <div ref={chatbotRef} className="chatbot-container">
+    <div className="chatbot-container">
       <button className="chatbot-toggle" onClick={toggleChatbot}>
         {isMinimized ? 'Open Chat' : 'Close Chat'}
       </button>
@@ -39,6 +34,7 @@ const Chatbot = () => {
           frameBorder="0"
           className="chatbot-iframe"
           title="Chatbot"
+          style={{ height: `${iframeHeight}px` }}
         ></iframe>
       )}
     </div>
