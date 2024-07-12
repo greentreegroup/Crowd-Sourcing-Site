@@ -1,27 +1,30 @@
-/* Chatbot.css */
-
 .chatbot-container {
   position: fixed;
-  bottom: 0;
-  right: 0;
-  width: 300px; /* Adjust width as needed */
-  height: 600px; /* Fixed height */
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-}
-
-.chatbot-toggle {
-  background-color: #0078d7;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  text-align: center;
+  bottom: 20px; /* Distance from the bottom of the viewport */
+  right: 20px; /* Distance from the right side of the viewport */
+  width: 400px; /* Width of the chatbot */
+  height: auto;
+  border: 1px solid #ccc; /* Optional border */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow for visual effect */
+  background-color: white; /* Background color */
+  z-index: 1000; /* Ensure it appears above other content */
 }
 
 .chatbot-iframe {
   width: 100%;
-  height: calc(100% - 40px); /* Subtract the height of the button */
+  height: 600px; /* Height of the chatbot iframe */
   border: none;
+}
+
+.chatbot-toggle {
+  position: absolute;
+  top: -30px; /* Adjust based on your preference */
+  right: 0;
+  background-color: #0078d7; /* Button color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
