@@ -1,43 +1,45 @@
-/* Chatbot.css */
+/*Chatbot.css*/
 
 .chatbot-container {
-  width: 100%;
-  max-height: 600px; /* Maximum height for larger screens */
-  overflow: hidden;
   position: fixed;
   bottom: 0;
   right: 0;
-  z-index: 1000; /* Ensure it appears above other content */
-  background: white; /* Background color for chatbot container */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
-  transition: height 0.3s ease; /* Smooth transition for height changes */
+  width: 300px; /* Adjust width as needed */
+  max-width: 100%;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
 }
 
 .chatbot-toggle {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 1001; /* Ensure it appears above the iframe */
-  padding: 10px 20px;
-  background: #0078d7;
+  background-color: #0078d7;
   color: white;
   border: none;
-  border-radius: 5px;
+  padding: 10px;
   cursor: pointer;
+  text-align: center;
 }
 
 .chatbot-iframe {
   width: 100%;
-  height: calc(100% - 40px); /* Adjust height to account for the toggle button */
   border: none;
 }
 
+/* Regular styles for chatbot container */
+.chatbot-container {
+  /* Default styles */
+  width: 100%; /* Adjust width as needed */
+  height: 600px; /* Default height for larger screens */
+}
+
+/* Media query for smaller screens */
 @media (max-width: 768px) {
   .chatbot-container {
     height: 400px; /* Adjust height for smaller screens */
   }
 }
 
+/* Additional media queries for very small screens */
 @media (max-width: 480px) {
   .chatbot-container {
     height: 300px; /* Adjust height for very small screens */
