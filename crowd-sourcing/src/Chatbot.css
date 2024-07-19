@@ -13,6 +13,13 @@
   transition: width 0.5s ease; /* Smooth transition for width changes */
 }
 
+.chatbot-container.minimized {
+  width: 0; /* Collapse width when minimized */
+  opacity: 0; /* Hide the container when minimized */
+  border: none; /* Remove border when minimized */
+  box-shadow: none; /* Remove shadow when minimized */
+}
+
 .chatbot-iframe {
   width: 100%;
   height: 100%;
@@ -31,3 +38,4 @@
   border-radius: 4px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
+
