@@ -11,12 +11,19 @@ const Chatbot = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      // Set a default height and adjust for smaller screens
-      let height = 500; // Default height
-      if (window.innerWidth < 900) {
-        height = window.innerHeight * 0.7; // Adjust height for smaller screens/mobile
-      }
+      const height = calculateIframeHeight();
       setIframeHeight(height);
+    };
+
+    const calculateIframeHeight = () => {
+      let height = 500; // Default height
+
+      // Adjust for smaller screens
+      if (window.innerWidth < 900) { // Adjust at viewport width less than 900px
+        height = window.innerHeight * 0.7; // 70% of the viewport height for smaller screens/mobile
+      }
+      
+      return height;
     };
 
     // Initial resize
@@ -25,7 +32,9 @@ const Chatbot = () => {
     // Listen to window resize events
     window.addEventListener('resize', handleResize);
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (
