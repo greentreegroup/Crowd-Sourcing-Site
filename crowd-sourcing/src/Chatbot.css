@@ -36,8 +36,10 @@
   border-radius: 4px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   z-index: 1001; /* Ensure the button appears above the minimized container */
-}
-
-.chatbot-container.minimized .chatbot-toggle {
-  top: -30px; /* Adjust top position when minimized */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
 }
