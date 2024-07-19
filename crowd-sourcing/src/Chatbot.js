@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Chatbot.css';
 
 const Chatbot = () => {
   const [isMinimized, setIsMinimized] = useState(false);
   const [iframeHeight, setIframeHeight] = useState(500); // Default height
-  const containerRef = useRef(null);
 
   const toggleChatbot = () => {
     setIsMinimized(!isMinimized);
@@ -12,17 +11,23 @@ const Chatbot = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (containerRef.current) {
-        const { height } = containerRef.current.getBoundingClientRect();
-        const userInputElement = document.querySelector('.webchat__basic-transcript-panel');
-        let heightAdjustment = 60; // Adjust as needed to leave space for user input section
+      let height = calculateIframeHeight();
+      setIframeHeight(height);
+    };
 
-        if (userInputElement) {
-          heightAdjustment += userInputElement.clientHeight;
-        }
+    const calculateIframeHeight = () => {
+      // Default height
+      let height = 500;
 
-        setIframeHeight(height - heightAdjustment);
+      // Adjust for smaller screens
+      if (window.innerWidth < 768) {
+        height = window.innerHeight * 0.7; // Adjust height for smaller screens/mobile
       }
+
+      // Leave some space for the user input section at the bottom
+      height -= 60; // Adjust as needed
+
+      return height;
     };
 
     // Initial resize
@@ -35,7 +40,7 @@ const Chatbot = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className={`chatbot-container ${isMinimized ? 'minimized' : ''}`}>
+    <div className={`chatbot-container ${isMinimized ? 'minimized' : ''}`}>
       <button className="chatbot-toggle" onClick={toggleChatbot}>
         {isMinimized ? 'Open Chat' : 'Close Chat'}
       </button>
