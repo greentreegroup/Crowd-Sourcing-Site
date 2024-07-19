@@ -39,7 +39,6 @@
 }
 
 .chatbot-container.minimized .chatbot-toggle {
-  width: 100%; /* Ensure the button spans the entire width */
   height: auto; /* Adjust height to match */
   padding: 10px 20px; /* Ensure the same padding as the non-minimized state */
   border-radius: 4px; /* Ensure the same border radius */
