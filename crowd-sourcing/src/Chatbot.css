@@ -15,7 +15,6 @@
 
 .chatbot-container.minimized {
   width: 0; /* Collapse width when minimized */
-  opacity: 0; /* Hide the container when minimized */
   border: none; /* Remove border when minimized */
   box-shadow: none; /* Remove shadow when minimized */
 }
@@ -38,8 +37,4 @@
   border-radius: 4px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   z-index: 1001; /* Ensure the button appears above the minimized container */
-}
-
-.chatbot-container.minimized .chatbot-toggle {
-  opacity: 1; /* Ensure the button is fully visible when minimized */
 }
