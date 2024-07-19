@@ -10,18 +10,16 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: white;
   z-index: 1000;
-  transition: width 0.3s ease; /* Smooth transition for width changes */
-  opacity: 1; /* Ensure container is fully visible by default */
+  transition: width 0.5s ease; /* Smooth transition for width changes */
 }
 
-.chatbot-container.minimized {
-  width: 0; /* Collapse width when minimized */
-  opacity: 0; /* Hide the container when minimized */
-  border: none; /* Remove border when minimized */
-  box-shadow: none; /* Remove shadow when minimized */
+.chatbot-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
-.chatbot-container.minimized .chatbot-toggle {
+.chatbot-toggle {
   position: absolute;
   top: -30px;
   right: 0;
@@ -32,19 +30,4 @@
   cursor: pointer;
   border-radius: 4px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  display: block; /* Ensure the "Open Chat" button is visible when minimized */
-}
-
-.chatbot-container.minimized .chatbot-iframe {
-  display: none; /* Hide the iframe when minimized */
-}
-
-.chatbot-iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.chatbot-toggle {
-  display: none; /* Initially hide the button */
 }
