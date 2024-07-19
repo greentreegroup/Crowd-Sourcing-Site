@@ -14,8 +14,8 @@
 
 .chatbot-container.minimized {
   width: 300px; /* Set the same width as when it's not minimized */
-  border: 1px solid #ccc; /* Keep the border when minimized */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Keep the shadow when minimized */
+  border: none; 
+  box-shadow: none;
 }
 
 .chatbot-iframe {
@@ -36,11 +36,4 @@
   border-radius: 4px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   z-index: 1001; /* Ensure the button appears above the minimized container */
-}
-
-.chatbot-container.minimized .chatbot-toggle {
-  height: auto; /* Adjust height to match */
-  padding: 10px 20px; /* Ensure the same padding as the non-minimized state */
-  border-radius: 4px; /* Ensure the same border radius */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Ensure the same box shadow */
 }
