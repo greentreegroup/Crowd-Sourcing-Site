@@ -19,10 +19,10 @@ const Chatbot = () => {
       let height = 500; // Default height
 
       // Adjust for smaller screens
-      if (window.innerWidth < 900) { // Adjust at viewport width less than 900px
+      if (window.innerWidth < 900) {
         height = window.innerHeight * 0.7; // 70% of the viewport height for smaller screens/mobile
       }
-      
+
       return height;
     };
 
