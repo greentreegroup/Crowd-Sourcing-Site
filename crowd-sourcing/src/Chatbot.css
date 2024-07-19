@@ -20,6 +20,10 @@
   box-shadow: none; /* Remove shadow when minimized */
 }
 
+.chatbot-container.minimized .chatbot-toggle {
+  display: block; /* Ensure the "Open Chat" button is visible when minimized */
+}
+
 .chatbot-iframe {
   width: 100%;
   height: 100%;
