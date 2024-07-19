@@ -14,7 +14,14 @@ const Chatbot = () => {
     const handleResize = () => {
       if (containerRef.current) {
         const { height } = containerRef.current.getBoundingClientRect();
-        setIframeHeight(height);
+        const userInputElement = document.querySelector('.webchat__basic-transcript-panel');
+        let heightAdjustment = 60; // Adjust as needed to leave space for user input section
+
+        if (userInputElement) {
+          heightAdjustment += userInputElement.clientHeight;
+        }
+
+        setIframeHeight(height - heightAdjustment);
       }
     };
 
