@@ -1,15 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Chatbot.css';
 
 const Chatbot = () => {
   const [isMinimized, setIsMinimized] = useState(false);
+  const [iframeHeight, setIframeHeight] = useState(500); // Default height
 
   const toggleChatbot = () => {
     setIsMinimized(!isMinimized);
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      // Set a default height and adjust for smaller screens
+      let height = 500; // Default height
+      if (window.innerWidth < 768) {
+        height = window.innerHeight * 0.6; // Adjust height for smaller screens/mobile
+      }
+      setIframeHeight(height);
+    };
+
+    // Initial resize
+    handleResize();
+
+    // Listen to window resize events
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <div className="chatbot-container">
+    <div className={`chatbot-container ${isMinimized ? 'minimized' : ''}`}>
       <button className="chatbot-toggle" onClick={toggleChatbot}>
         {isMinimized ? 'Open Chat' : 'Close Chat'}
       </button>
@@ -19,6 +39,7 @@ const Chatbot = () => {
           frameBorder="0"
           className="chatbot-iframe"
           title="Chatbot"
+          style={{ height: `${iframeHeight}px` }}
         ></iframe>
       )}
     </div>
