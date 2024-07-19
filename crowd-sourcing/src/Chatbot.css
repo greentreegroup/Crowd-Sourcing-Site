@@ -10,7 +10,6 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: white;
   z-index: 1000;
-  transition: width 0.7s ease; /* Smooth transition for width changes */
 }
 
 .chatbot-container.minimized {
@@ -37,4 +36,8 @@
   border-radius: 4px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   z-index: 1001; /* Ensure the button appears above the minimized container */
+}
+
+.chatbot-container.minimized .chatbot-toggle {
+  top: -30px; /* Adjust top position when minimized */
 }
