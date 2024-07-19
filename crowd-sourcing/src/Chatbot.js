@@ -11,23 +11,12 @@ const Chatbot = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      let height = calculateIframeHeight();
-      setIframeHeight(height);
-    };
-
-    const calculateIframeHeight = () => {
-      // Default height
-      let height = 500;
-
-      // Adjust for smaller screens
+      // Set a default height and adjust for smaller screens
+      let height = 500; // Default height
       if (window.innerWidth < 768) {
-        height = window.innerHeight * 0.7; // Adjust height for smaller screens/mobile
+        height = window.innerHeight * 0.6; // Adjust height for smaller screens/mobile
       }
-
-      // Leave some space for the user input section at the bottom
-      height -= 60; // Adjust as needed
-
-      return height;
+      setIframeHeight(height);
     };
 
     // Initial resize
