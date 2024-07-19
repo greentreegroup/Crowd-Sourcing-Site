@@ -13,7 +13,7 @@ const Chatbot = () => {
     const handleResize = () => {
       // Set a default height and adjust for smaller screens
       let height = 500; // Default height
-      if (window.innerWidth < 600) {
+      if (window.innerWidth < 900) {
         height = window.innerHeight * 0.7; // Adjust height for smaller screens/mobile
       }
       setIframeHeight(height);
