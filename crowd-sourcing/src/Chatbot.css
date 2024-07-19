@@ -40,3 +40,7 @@
   z-index: 1001; /* Ensure the button appears above the minimized container */
   display: block; /* Ensure the button is always visible */
 }
+
+.chatbot-container.minimized .chatbot-toggle {
+  top: 20px; /* Adjust top positioning when minimized */
+}
