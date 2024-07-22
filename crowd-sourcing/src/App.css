@@ -1,61 +1,22 @@
-/* Ensure the viewport is set correctly */
-body, html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
-}
+/* App.css */
 
-/* Make sure the app container is responsive */
+/* Existing styles */
 .App {
   display: grid;
   grid-template-columns: [sidebar-start] auto [sidebar-end] 1fr;
   grid-template-areas:
     "sidebar header"
     "sidebar main";
-  height: 100%;
-  width: 100%;
+  /* Other styles */
 }
 
 .sidebar {
   grid-area: sidebar;
+  /* Other styles */
 }
 
 .App-main {
   grid-area: main;
+  /* Other styles */
   margin-top: 40px; /* Adjust as needed */
-}
-
-/* Navbar specific styles */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #dab78c; /* Adjust as needed */
-  width: 100%;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-.navbar a {
-  padding: 10px;
-  text-decoration: none;
-  color: black;
-}
-
-.navbar a:hover {
-  background-color: #fff;
-}
-
-/* Responsive design for navbar */
-@media (max-width: 768px) {
-  .navbar {
-    flex-wrap: wrap;
-    padding: 10px;
-  }
-  .navbar a {
-    flex: 1 0 100%;
-    text-align: center;
-  }
 }
