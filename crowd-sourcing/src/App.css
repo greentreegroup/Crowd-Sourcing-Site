@@ -8,45 +8,34 @@ body, html {
 
 /* Make sure the app container is responsive */
 .App {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: [sidebar-start] auto [sidebar-end] 1fr;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
   height: 100%;
   width: 100%;
 }
 
 .sidebar {
-  display: none; /* Hide the sidebar on mobile */
+  grid-area: sidebar;
 }
 
 .App-main {
-  flex: 1;
+  grid-area: main;
   margin-top: 40px; /* Adjust as needed */
-  padding: 10px; /* Add padding for mobile view */
-}
-
-@media (min-width: 768px) {
-  .App {
-    display: grid;
-    grid-template-columns: [sidebar-start] auto [sidebar-end] 1fr;
-    grid-template-areas:
-      "sidebar header"
-      "sidebar main";
-    /* Other styles */
-  }
-
-  .sidebar {
-    display: block; /* Show the sidebar on larger screens */
-  }
 }
 
 /* Navbar specific styles */
 .navbar {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   background-color: #dab78c; /* Adjust as needed */
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .navbar a {
@@ -61,10 +50,12 @@ body, html {
 
 /* Responsive design for navbar */
 @media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
   .navbar a {
-    display: block;
+    flex: 1 0 100%;
     text-align: center;
-    padding: 15px;
-    width: 100%;
   }
 }
