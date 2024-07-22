@@ -1,24 +1,70 @@
-/* App.css */
+/* Ensure the viewport is set correctly */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
 
-/* Existing styles */
+/* Make sure the app container is responsive */
 .App {
-  display: grid;
-  grid-template-columns: [sidebar-start] auto [sidebar-end] 1fr;
-  grid-template-areas:
-    "sidebar header"
-    "sidebar main";
-  /* Other styles */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
 
 .sidebar {
-  grid-area: sidebar;
-  /* Other styles */
+  display: none; /* Hide the sidebar on mobile */
 }
 
 .App-main {
-  grid-area: main;
-  /* Other styles */
+  flex: 1;
   margin-top: 40px; /* Adjust as needed */
+  padding: 10px; /* Add padding for mobile view */
 }
 
+@media (min-width: 768px) {
+  .App {
+    display: grid;
+    grid-template-columns: [sidebar-start] auto [sidebar-end] 1fr;
+    grid-template-areas:
+      "sidebar header"
+      "sidebar main";
+    /* Other styles */
+  }
 
+  .sidebar {
+    display: block; /* Show the sidebar on larger screens */
+  }
+}
+
+/* Navbar specific styles */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #dab78c; /* Adjust as needed */
+}
+
+.navbar a {
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.navbar a:hover {
+  background-color: #fff;
+}
+
+/* Responsive design for navbar */
+@media (max-width: 768px) {
+  .navbar a {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+  }
+}
