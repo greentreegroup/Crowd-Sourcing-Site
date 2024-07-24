@@ -21,17 +21,9 @@
   margin-top: 40px; /* Adjust as needed */
 }
 
-/* Add this media query to adjust layout for mobile devices */
-@media (max-width: 768px) {
-  .App {
-    grid-template-columns: 1fr; /* Single column layout */
-    grid-template-areas:
-      "header"
-      "sidebar"
-      "main";
-  }
-
-  .App-main {
-    margin-top: 0; /* Remove margin for alignment */
-  }
+body{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
