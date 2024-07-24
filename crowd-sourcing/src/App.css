@@ -9,10 +9,13 @@
     "sidebar header"
     "sidebar main";
   height: 100vh; /* Ensure the app takes the full height of the viewport */
+  overflow: hidden; /* Prevent additional scrollbar */
 }
 
 .sidebar {
   grid-area: sidebar;
+  height: 100%; /* Make sidebar take full height */
+  overflow-y: auto; /* Ensure sidebar is scrollable if needed */
   /* Other styles */
 }
 
@@ -30,7 +33,9 @@ header {
   grid-area: main;
   /* Other styles */
   margin-top: 20px; /* Adjust as needed */
-  overflow: auto; /* Ensure main content is scrollable if needed */
+  overflow-y: auto; /* Ensure main content is scrollable */
+  padding: 10px; /* Add padding if needed */
+  height: 100%; /* Make main content take full height */
 }
 
 /* Responsive adjustments */
@@ -46,6 +51,7 @@ header {
 
   .sidebar {
     width: 100%; /* Full width for mobile view */
+    height: auto; /* Allow sidebar to adjust height */
   }
 
   header {
