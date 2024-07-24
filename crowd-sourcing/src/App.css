@@ -13,21 +13,23 @@
 
 .sidebar {
   grid-area: sidebar;
-  height: 100%; /* Ensure the sidebar takes the full height */
   /* Other styles */
 }
 
 header {
   grid-area: header;
   width: 100%; /* Ensure header takes full width */
-  /* Adjust header styles as needed */
+  background-color: #f8f8f8; /* Adjust background color as needed */
+  padding: 10px 20px; /* Adjust padding as needed */
+  display: flex;
+  justify-content: space-between; /* Space between header items */
+  align-items: center; /* Center header items vertically */
 }
 
 .App-main {
   grid-area: main;
-  margin-top: 40px; /* Adjust as needed */
-  padding: 10px; /* Add padding if needed */
-  height: calc(100vh - 40px); /* Make main content take full height minus margin */
+  /* Other styles */
+  margin-top: 20px; /* Adjust as needed */
 }
 
 /* Responsive adjustments */
@@ -43,7 +45,6 @@ header {
 
   .sidebar {
     width: 100%; /* Full width for mobile view */
-    height: auto; /* Allow sidebar to adjust height */
   }
 
   header {
