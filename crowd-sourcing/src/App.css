@@ -9,33 +9,25 @@
     "sidebar header"
     "sidebar main";
   height: 100vh; /* Ensure the app takes the full height of the viewport */
-  overflow: hidden; /* Prevent additional scrollbar */
 }
 
 .sidebar {
   grid-area: sidebar;
-  height: 100%; /* Make sidebar take full height */
-  overflow-y: auto; /* Ensure sidebar is scrollable if needed */
+  height: 100%; /* Ensure the sidebar takes the full height */
   /* Other styles */
 }
 
 header {
   grid-area: header;
   width: 100%; /* Ensure header takes full width */
-  background-color: #f8f8f8; /* Adjust background color as needed */
-  padding: 10px 20px; /* Adjust padding as needed */
-  display: flex;
-  justify-content: space-between; /* Space between header items */
-  align-items: center; /* Center header items vertically */
+  /* Adjust header styles as needed */
 }
 
 .App-main {
   grid-area: main;
-  /* Other styles */
-  margin-top: 20px; /* Adjust as needed */
-  overflow-y: auto; /* Ensure main content is scrollable */
+  margin-top: 40px; /* Adjust as needed */
   padding: 10px; /* Add padding if needed */
-  height: 100%; /* Make main content take full height */
+  height: calc(100vh - 40px); /* Make main content take full height minus margin */
 }
 
 /* Responsive adjustments */
