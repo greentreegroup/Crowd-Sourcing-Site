@@ -4,11 +4,10 @@
 .App {
   display: grid;
   grid-template-columns: [sidebar-start] auto [sidebar-end] 1fr;
-  grid-template-rows: auto 1fr; /* Define rows for header and main */
   grid-template-areas:
     "sidebar header"
     "sidebar main";
-  height: 100vh; /* Ensure the app takes the full height of the viewport */
+  /* Other styles */
 }
 
 .sidebar {
@@ -16,39 +15,23 @@
   /* Other styles */
 }
 
-header {
-  grid-area: header;
-  width: 100%; /* Ensure header takes full width */
-  background-color: #f8f8f8; /* Adjust background color as needed */
-  padding: 10px 20px; /* Adjust padding as needed */
-  display: flex;
-  justify-content: space-between; /* Space between header items */
-  align-items: center; /* Center header items vertically */
-}
-
 .App-main {
   grid-area: main;
   /* Other styles */
-  margin-top: 20px; /* Adjust as needed */
+  margin-top: 40px; /* Adjust as needed */
 }
 
-/* Responsive adjustments */
+/* Add this media query to adjust layout for mobile devices */
 @media (max-width: 768px) {
   .App {
-    grid-template-columns: 1fr; /* Single column for mobile view */
-    grid-template-rows: auto auto 1fr; /* Adjust rows for mobile */
+    grid-template-columns: 1fr; /* Single column layout */
     grid-template-areas:
       "header"
       "sidebar"
       "main";
   }
 
-  .sidebar {
-    width: 100%; /* Full width for mobile view */
-  }
-
-  header {
-    flex-direction: column; /* Stack header items vertically on mobile */
-    align-items: flex-start; /* Align items to the start */
+  .App-main {
+    margin-top: 0; /* Remove margin for alignment */
   }
 }
