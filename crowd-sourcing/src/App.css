@@ -21,20 +21,20 @@
   margin-top: 40px; /* Adjust as needed */
 }
 
-/* Add responsive styles */
+/* Adjustments for responsive design */
 @media (max-width: 768px) {
   .App {
-    grid-template-columns: 1fr;
+    grid-template-columns: [sidebar-start] 1fr [sidebar-end];
     grid-template-areas:
       "header"
       "main";
   }
 
-  .sidebar {
-    display: none; /* Hide the sidebar on mobile */
+  .App-main {
+    margin-top: 0; /* Align with the top menu bar */
   }
 
-  .App-main {
-    margin-top: 0; /* Remove top margin */
+  .sidebar {
+    display: none; /* Hide sidebar for mobile view */
   }
 }
