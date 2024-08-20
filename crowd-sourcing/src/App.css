@@ -20,3 +20,7 @@
   /* Other styles */
   margin-top: 40px; /* Adjust as needed */
 }
+
+body {
+  position: absolute;
+}
